@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="kiyeu.jpeg">
+    <link rel="icon" type="image/png" sizes="16x16" href="../main/kiyeu.jpeg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../main/style.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="kiyeu.jpeg" alt="Logo">
-                <!-- <span class="fw-bold text-dark">Tran Duc Minh</span> -->
+                <img src="../main/kiyeu.jpeg" alt="Logo">
+                <span class="fw-bold text-dark">Tran Duc Minh</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link active" href="../main/index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../Experience/index.html">Experience</a>
@@ -51,85 +51,6 @@
     </nav>
 
     <main class="container mx-auto px-4 py-8">
-        <!-- Phần Giới thiệu -->
-        <section id="about" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8 mb-12">
-            <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-gray-200">
-                    <img src="kiyeu.jpeg" alt="Minh Tran" class="w-1 h-full object-cover"
-                        style="width: 200px; height: 200px; border-radius: 50%;">
-                </div>
-                <div class="text-center md:text-left">
-                    <h1 class="text-4xl font-bold text-gray-800" data-key="name">Tran Duc Minh</h1>
-                    <p class="text-xl text-gray-600 mt-2" data-key="title">Software developer</p>
-                    <p class="mt-4 text-gray-700 leading-relaxed max-w-2xl" data-key="bio">
-                        Dynamic software developer with over 11 years of experience in building and maintaining
-                        applications to enhance user engagement and performance.
-                        Skilled in collaborating with cross-functional teams to tackle complex technical challenges,
-                        ensuring seamless functionality and maintainability.
-                        Committed to adhering to coding standards and best practices, contributing to exceptional code
-                        quality and scalability.
-                        Proven experience in implementing thorough testing and debugging processes, optimizing
-                        application performance for an enhanced user experience.
-
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Phần Kinh nghiệm làm việc -->
-        <section id="experience" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8 mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-400 pb-2"
-                data-key="experience_title">Work experience</h2>
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-xl font-bold text-gray-700" data-key="job_title_1">Programmer</h3>
-                    <p class="text-lg text-gray-600" data-key="company_1">Company updates</p>
-                    <p class="text-gray-500 text-sm italic" data-key="duration_1">update working day</p>
-                    <ul class="list-disc list-inside mt-4 text-gray-700 space-y-2" data-key="responsibilities_1">
-                        <li>Develop and maintain software applications to enhance functionality and user experience.
-                        </li>
-                        <li>Collaborate with cross-functional teams to identify and resolve technical issues.</li>
-                        <li>Implement coding standards and best practices to improve code quality.</li>
-                        <li>Participate in code reviews and provide constructive feedback to peers.</li>
-                        <li>Perform thorough testing and debugging to ensure optimal performance of the application.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Phần Giáo dục -->
-        <section id="education" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8 mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-400 pb-2"
-                data-key="education_title">Education</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-xl font-bold text-gray-700" data-key="school">Dong A University</h3>
-                    <p class="text-lg text-gray-600" data-key="education_duration">September 2025 - 2029</p>
-                    <p class="text-green-600 italic font-semibold mt-1" data-key="degree_note">Graduated with honors</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Phần Dự Án -->
-        <section id="project" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8 mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-400 pb-2" data-key="project_title">
-                Project</h2>
-            <div class="space-y-2">
-                <p class="text-lg text-gray-700 font-semibold" data-key="project_1"><a
-                        href="https://trminh-developer.github.io/brands/">Brand</a></p>
-            </div>
-        </section>
-
-        <!-- Phần Kỹ năng -->
-        <section id="skills" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8 mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-400 pb-2" data-key="skills_title">
-                Skills</h2>
-            <div class="space-y-2">
-                <p class="text-lg text-gray-700 font-semibold" data-key="skill_1">Logical and creative thinking</p>
-            </div>
-        </section>
-
         <!-- Phần Liên hệ -->
         <section id="contact" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8">
             <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-400 pb-2" data-key="contact_title">
