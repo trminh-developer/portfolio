@@ -4,19 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Kỹ năng chuyên môn của Trần Đức Minh - Full Stack Developer.">
+    <title>Skills | Tran Duc Minh Portfolio</title>
+
     <link rel="icon" type="image/png" sizes="16x16" href="../main/kiyeu.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../main/style.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 80px;
+        }
+
+        .skill-card {
+            border: none;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .section-title {
+            border-bottom: 3px solid #198754;
+            /* Màu xanh lá */
+            display: inline-block;
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+            color: #0d6efd !important;
+        }
+
+        /* Style cho từng item kỹ năng */
+        .skill-item {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .skill-item:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="../main/kiyeu.jpeg" alt="Logo">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../main/index.html">
+                <img src="../main/kiyeu.jpeg" alt="Avatar" class="rounded-circle" width="40" height="40"
+                    style="object-fit: cover;">
+                <span class="fw-bold text-dark">Tran Duc Minh</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,7 +84,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="../main/index.html">Home</a>
+                        <a class="nav-link" href="../main/index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../Experience/index.html">Experience</a>
@@ -39,7 +96,7 @@
                         <a class="nav-link" href="../Project/index.html">Project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Skills/index.html">Skills</a>
+                        <a class="nav-link active" href="../Skills/index.html">Skills</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../Contact/index.html">Contact</a>
@@ -49,17 +106,33 @@
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
-        <!-- Phần Kỹ năng -->
-        <section id="skills" class="scroll-smooth-section bg-white shadow-xl rounded-2xl p-8 mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-green-400 pb-2" data-key="skills_title">
-                Skills</h2>
-            <div class="space-y-2">
-                <p class="text-lg text-gray-700 font-semibold" data-key="skill_1">Logical and creative thinking</p>
-                <p class="text-lg text-gray-700 font-semibold" data-key="skill_1">Full stack</p>
+    <main class="container py-5">
+        <section id="skills" class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="card skill-card shadow p-4 p-md-5">
+                    <div class="card-body">
+                        <h2 class="fw-bold text-dark mb-4 pb-2 section-title" data-key="skills_title">
+                            Skills
+                        </h2>
+
+                        <div class="d-flex flex-wrap gap-3">
+                            <div class="skill-item" data-key="skill_logic">
+                                <i class="bi bi-puzzle-fill"></i> Logical and creative thinking
+                            </div>
+
+                            <div class="skill-item" data-key="skill_fullstack">
+                                <i class="bi bi-layers-fill"></i> Full stack Development
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
