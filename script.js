@@ -1,129 +1,181 @@
-// Dữ liệu ngôn ngữ cho trang web
+// 1. DATA (Dữ liệu ngôn ngữ)
 const translations = {
-    'vi': {
-        'about': 'Giới thiệu',
-        'experience': 'Kinh nghiệm',
-        'skills': 'Kỹ năng',
-        'contact': 'Liên hệ',
-        'name': 'Trần Đức Minh',
-        'title': 'Nhà phát triển phần mềm',
-        'bio': 'Nhà phát triển phần mềm năng động với hơn 11 năm kinh nghiệm trong việc xây dựng và duy trì các ứng dụng để nâng cao sự tương tác và hiệu suất của người dùng. Chuyên môn trong việc hợp tác với các nhóm liên chức năng để giải quyết các thách thức kỹ thuật phức tạp, đảm bảo tính năng liền mạch và khả năng bảo trì. Cam kết tuân thủ các tiêu chuẩn mã hóa và thực hành tốt nhất, góp phần vào chất lượng mã vượt trội và khả năng mở rộng. Đã có kinh nghiệm đã được chứng minh trong việc thực hiện kiểm tra và quy trình gỡ lỗi kỹ lưỡng, tối ưu hóa hiệu suất ứng dụng để có trải nghiệm người dùng nâng cao.',
-        'experience_title': 'Kinh nghiệm làm việc',
-        'job_title_1': 'Lập trình viên',
-        'company_1': 'Fastdo, Da Nang',
-        'duration_1': 'Tháng 7, 2029 - Tháng 11, 2040',
-        'responsibilities_1': '<li>Phát triển và duy trì các ứng dụng phần mềm để nâng cao chức năng và trải nghiệm người dùng.</li><li>Hợp tác với các nhóm liên chức năng để xác định và giải quyết các vấn đề kỹ thuật.</li><li>Thực hiện các tiêu chuẩn mã hóa và thực hành tốt nhất để cải thiện chất lượng mã.</li><li>Tham gia đánh giá mã và đưa ra phản hồi mang tính xây dựng cho đồng nghiệp.</li><li>Thực hiện kiểm tra và gỡ lỗi kỹ lưỡng để đảm bảo hiệu suất tối ưu của ứng dụng.</li>',
-        'education_title': 'Giáo dục',
-        'school': 'Đại học Dong A',
-        'education_duration': 'Tháng 9, 2025 - Tháng 6, 2029',
-        'degree_note': 'Tốt nghiệp với bằng danh dự',
-        'skills_title': 'Kỹ năng',
-        'skill_1': 'Tư duy logic và sáng tạo',
-        'contact_title': 'Liên hệ',
-        'address_label': 'Địa chỉ:',
-        'address_value': 'Da Nang, Viet Nam',
-        'email_label': 'Email:',
-        'email_value': 'trminhlaptrinhvien@gmail.com',
-        'links_label': 'Liên kết:',
-        'links_value': 'Facebook'
+    en: {
+        // Menu
+        home: 'Home',
+        experience: 'Experience',
+        education: 'Education',
+        project: 'Projects',
+        skills: 'Skills',
+        contact: 'Contact',
+
+        // Home Page
+        name: 'Tran Duc Minh',
+        title: 'Software Developer',
+        bio: 'Dynamic software developer with over 11 years of experience in building and maintaining applications to enhance user engagement and performance.',
+
+        // Experience Page
+        experience_title: 'Work Experience',
+        job_title_1: 'Programmer',
+        company_1: 'Fastdo, Da Nang', // Cập nhật tên công ty của bạn
+        duration_1: 'Jan 2020 - Present',
+        responsibilities_1: `
+            <li class="mb-2">Develop and maintain software applications to enhance functionality and user experience.</li>
+            <li class="mb-2">Collaborate with cross-functional teams to identify and resolve technical issues.</li>
+            <li class="mb-2">Implement coding standards and best practices to improve code quality.</li>
+            <li class="mb-2">Participate in code reviews and provide constructive feedback to peers.</li>
+            <li>Perform thorough testing and debugging to ensure optimal performance.</li>
+        `,
+
+        // Common
+        view_projects: 'View Projects',
+        contact_me: 'Contact Me'
     },
-    'en': {
-        'about': 'Introduce',
-        'experience': 'Experience',
-        'skills': 'Skills',
-        'contact': 'Contact',
-        'name': 'Tran Duc Minh',
-        'title': 'Software Developer',
-        'bio': 'A dynamic software developer with over 11 years of experience building and maintaining applications to enhance user engagement and efficiency. Expertise in collaborating with cross-functional teams to solve complex technical challenges, ensuring seamless functionality and maintainability. Committed to adhering to coding standards and best practices, contributing to superior code quality and scalability. Proven experience in implementing thorough testing and debugging processes, optimizing application performance for an enhanced user experience.',
-        'experience_title': 'Work Experience',
-        'job_title_1': 'Programmer',
-        'company_1': 'Company update',
-        'duration_1': 'July, 2029 - November, 2040',
-        'responsibilities_1': '<li>Developed and maintained software applications to enhance functionality and user experience.</li><li>Collaborated with cross-functional teams to identify and resolve technical issues.</li><li>Implemented coding standards and best practices to improve code quality.</li><li>Participated in code reviews and provided constructive feedback to peers.</li><li>Conducted thorough testing and debugging to ensure optimal application performance.</li>',
-        'education_title': 'Education',
-        'school': 'Dong A University',
-        'education_duration': 'September, 2025 - June, 2029',
-        'degree_note': 'Graduated with an honorary degree',
-        'skills_title': 'Skills',
-        'skill_1': 'Logical and creative thinking',
-        'contact_title': 'Contact',
-        'address_label': 'Address:',
-        'address_value': 'Da Nang, Viet Nam',
-        'email_label': 'Email:',
-        'email_value': 'trminhlaptrinhvien@gmail.com',
-        'links_label': 'Links:',
-        'links_value': 'Facebook'
-    }
+    vi: {
+        // Menu
+        home: 'Trang chủ',
+        experience: 'Kinh nghiệm',
+        education: 'Học vấn',
+        project: 'Dự án',
+        skills: 'Kỹ năng',
+        contact: 'Liên hệ',
+
+        // Home Page
+        name: 'Trần Đức Minh',
+        title: 'Nhà phát triển phần mềm',
+        bio: 'Lập trình viên năng động với hơn 11 năm kinh nghiệm trong việc xây dựng và bảo trì các ứng dụng nhằm nâng cao hiệu suất và trải nghiệm người dùng.',
+
+        // Experience Page
+        experience_title: 'Kinh nghiệm làm việc',
+        job_title_1: 'Lập trình viên',
+        company_1: 'Fastdo, Đà Nẵng',
+        duration_1: 'Tháng 1/2020 - Hiện tại',
+        responsibilities_1: `
+            <li class="mb-2">Phát triển và bảo trì các ứng dụng phần mềm để nâng cao tính năng và trải nghiệm người dùng.</li>
+            <li class="mb-2">Phối hợp với các nhóm chức năng để xác định và giải quyết các vấn đề kỹ thuật.</li>
+            <li class="mb-2">Thực hiện các tiêu chuẩn coding và thực hành tốt nhất để cải thiện chất lượng mã nguồn.</li>
+            <li class="mb-2">Tham gia đánh giá code (code review) và đưa ra phản hồi mang tính xây dựng.</li>
+            <li>Thực hiện kiểm thử và gỡ lỗi kỹ lưỡng để đảm bảo hiệu suất tối ưu.</li>
+        `,
+
+        // Common
+        view_projects: 'Xem dự án',
+        contact_me: 'Liên hệ tôi'
+    },
 };
 
-// ==========================================================
-// Chức năng Chuyển đổi Chế độ Sáng/Tối
-// ==========================================================
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
+// 2. DOM ELEMENTS & STATE
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const langToggle = document.getElementById('language-toggle');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navbarCollapse = document.getElementById('navbarNav'); // ID chuẩn của Bootstrap menu
 
-// Kiểm tra trạng thái chế độ tối từ localStorage khi trang tải
-const savedMode = localStorage.getItem('theme');
-if (savedMode === 'dark') {
-    body.classList.add('dark');
-    darkModeToggle.textContent = '🌙';
-}
+    // Lấy trạng thái từ LocalStorage
+    let currentLang = localStorage.getItem('lang') || 'vi'; // Mặc định tiếng Việt
+    const savedTheme = localStorage.getItem('theme');
 
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    if (body.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-        darkModeToggle.textContent = '🌙';
-    } else {
-        localStorage.setItem('theme', 'light');
-        darkModeToggle.textContent = '☀️';
-    }
-});
+    // 3. HELPER FUNCTIONS
 
-// ==========================================================
-// Chức năng Chuyển đổi Ngôn ngữ
-// ==========================================================
-const langToggle = document.getElementById('language-toggle');
-let currentLang = 'vi';
-
-// Hàm cập nhật nội dung trang dựa trên ngôn ngữ
-const updateContent = (lang) => {
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[lang][key]) {
-            // Đối với các phần tử có thể chứa HTML (như danh sách li), sử dụng innerHTML
-            if (element.tagName === 'UL' || element.tagName === 'A') {
-                element.innerHTML = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
+    // Hàm đổi giao diện Sáng/Tối
+    const setTheme = (mode) => {
+        if (mode === 'dark') {
+            body.classList.add('dark');
+            if (darkModeToggle) darkModeToggle.textContent = '☀️'; // Icon mặt trời
+        } else {
+            body.classList.remove('dark');
+            if (darkModeToggle) darkModeToggle.textContent = '🌙'; // Icon mặt trăng
         }
-    });
+        localStorage.setItem('theme', mode);
+    };
 
-    // Cập nhật văn bản của các liên kết trên thanh điều hướng
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const sectionId = link.getAttribute('href').substring(1);
-        link.textContent = translations[lang][sectionId];
-    });
-};
+    // Hàm cập nhật nội dung theo ngôn ngữ
+    const updateContent = (lang) => {
+        // Cập nhật text cho các thẻ có data-key
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.dataset.key;
+            if (!translations[lang][key]) return;
 
-// Xử lý sự kiện nhấp vào nút chuyển đổi ngôn ngữ
-langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'vi' ? 'en' : 'vi';
-    langToggle.textContent = currentLang.toUpperCase();
+            // Nếu là danh sách (UL) hoặc chứa HTML, dùng innerHTML
+            if (el.tagName === 'UL' || el.tagName === 'DIV' || key.includes('responsibilities')) {
+                el.innerHTML = translations[lang][key];
+            } else {
+                el.textContent = translations[lang][key];
+            }
+        });
+
+        // Cập nhật text cho Menu
+        const menuItems = {
+            '../index.html': 'home',
+            '../Experience/index.html': 'experience',
+            '../Education/index.html': 'education',
+            '../Project/index.html': 'project',
+            '../Skills/index.html': 'skills',
+            '../Contact/index.html': 'contact'
+        };
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // Lấy tên file từ đường dẫn (ví dụ: index.html)
+            const pageName = href ? href.split('/').pop() : 'home';
+
+            // Xử lý trường hợp href="#" (trang chủ)
+            const key = (href === '#' || href === 'index.html' || href === '') ? 'home' : menuItems[pageName];
+
+            if (key && translations[lang][key]) {
+                link.textContent = translations[lang][key];
+            }
+        });
+
+        // Cập nhật nút ngôn ngữ
+        if (langToggle) langToggle.textContent = lang.toUpperCase();
+        localStorage.setItem('lang', lang);
+    };
+
+    // 4. INITIALIZE (Khởi chạy)
+
+    // Set theme đã lưu
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        // Mặc định check theo hệ điều hành nếu chưa set
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        }
+    }
+
+    // Set ngôn ngữ đã lưu
     updateContent(currentLang);
-});
 
-// Cập nhật nội dung ban đầu khi tải trang
-updateContent(currentLang);
-const navLinks = document.querySelectorAll('.nav-link');
+    // 5. EVENT LISTENERS
 
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        navLinks.forEach(l => l.classList.remove('text-green-300'));
-        link.classList.add('text-green-300');
-        setTimeout(() => {
-            link.classList.remove('text-green-300');
-        }, 2000);
+    // Toggle Dark Mode
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            const mode = body.classList.contains('dark') ? 'light' : 'dark';
+            setTheme(mode);
+        });
+    }
+
+    // Toggle Language
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'vi' ? 'en' : 'vi';
+            updateContent(currentLang);
+        });
+    }
+
+    // Mobile Menu: Tự động đóng khi click vào link (Chuẩn Bootstrap 5)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Chỉ đóng nếu đang ở chế độ mobile (menu đang mở)
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                // Sử dụng Bootstrap API để toggle
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: true
+                });
+            }
+        });
     });
 });
