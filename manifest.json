@@ -1,7 +1,7 @@
 {
-    "name": "My App",
-    "short_name": "MyApp",
-    "start_url": "/",
+    "name": "Portfolio",
+    "short_name": "TrMinh",
+    "start_url": "../main/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0A84FF",
