@@ -11,8 +11,8 @@ const translations = {
 
         // Home Page
         name: 'Tran Duc Minh',
-        title: 'Software Developer',
-        bio: 'Dynamic software developer with over 11 years of experience in building and maintaining applications to enhance user engagement and performance.',
+        title: 'Cyber Security',
+        bio: 'Dynamic cyber security with over 11 years of experience in building and maintaining applications to enhance user engagement and performance.',
 
         // Experience Page
         experience_title: 'Work Experience',
@@ -42,12 +42,12 @@ const translations = {
 
         // Home Page
         name: 'Trần Đức Minh',
-        title: 'Nhà phát triển phần mềm',
+        title: 'An ninh nạng',
         bio: 'Lập trình viên năng động với hơn 11 năm kinh nghiệm trong việc xây dựng và bảo trì các ứng dụng nhằm nâng cao hiệu suất và trải nghiệm người dùng.',
 
         // Experience Page
         experience_title: 'Kinh nghiệm làm việc',
-        job_title_1: 'Lập trình viên',
+        job_title_1: 'An ninh mạng',
         company_1: 'Fastdo, Đà Nẵng',
         duration_1: 'Tháng 1/2020 - Hiện tại',
         responsibilities_1: `
