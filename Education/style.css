@@ -1,0 +1,86 @@
+:root {
+    --primary-color: #10b981;
+    /* Màu xanh chủ đạo */
+    --bg-light: #f8f9fa;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: #333;
+}
+
+/* Navbar Glassmorphism */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Animation xuất hiện */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Education Custom */
+.edu-card {
+    border: none;
+    border-radius: 16px;
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 5px solid var(--primary-color);
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.school-logo-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #e6fffa;
+    color: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.badge-year {
+    background-color: #ecfdf5;
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+h2.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background: var(--primary-color);
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+}
