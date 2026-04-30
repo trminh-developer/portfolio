@@ -11,8 +11,8 @@ Open `index.html` (root) — auto-redirects to `Main/index.html`.
 Or serve locally:
 
 ```bash
-npx http-server . -p 3456
-# Visit http://127.0.0.1:3456/Main/index.html
+npx live-server
+# Visit http://127.0.0.1:8080/Main/index.html
 ```
 
 ---
