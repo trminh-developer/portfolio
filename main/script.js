@@ -1,181 +1,362 @@
-// 1. DATA (Dữ liệu ngôn ngữ)
-const translations = {
-    en: {
-        // Menu
-        home: 'Home',
-        experience: 'Experience',
-        education: 'Education',
-        project: 'Projects',
-        skills: 'Skills',
-        contact: 'Contact',
+/* ============================================================
+   CYBER DEFENDER – JavaScript
+   Animations: background canvas, monitor chart, globe, counters
+   ============================================================ */
 
-        // Home Page
-        name: 'Tran Duc Minh',
-        title: 'Cyber Security',
-        bio: 'Dynamic cyber security with over 11 years of experience in building and maintaining applications to enhance user engagement and performance.',
-
-        // Experience Page
-        experience_title: 'Work Experience',
-        job_title_1: 'Programmer',
-        company_1: 'Fastdo, Da Nang', // Cập nhật tên công ty của bạn
-        duration_1: 'Jan 2020 - Present',
-        responsibilities_1: `
-            <li class="mb-2">Develop and maintain software applications to enhance functionality and user experience.</li>
-            <li class="mb-2">Collaborate with cross-functional teams to identify and resolve technical issues.</li>
-            <li class="mb-2">Implement coding standards and best practices to improve code quality.</li>
-            <li class="mb-2">Participate in code reviews and provide constructive feedback to peers.</li>
-            <li>Perform thorough testing and debugging to ensure optimal performance.</li>
-        `,
-
-        // Common
-        view_projects: 'View Projects',
-        contact_me: 'Contact Me'
-    },
-    vi: {
-        // Menu
-        home: 'Trang chủ',
-        experience: 'Kinh nghiệm',
-        education: 'Học vấn',
-        project: 'Dự án',
-        skills: 'Kỹ năng',
-        contact: 'Liên hệ',
-
-        // Home Page
-        name: 'Trần Đức Minh',
-        title: 'An ninh nạng',
-        bio: 'Lập trình viên năng động với hơn 11 năm kinh nghiệm trong việc xây dựng và bảo trì các ứng dụng nhằm nâng cao hiệu suất và trải nghiệm người dùng.',
-
-        // Experience Page
-        experience_title: 'Kinh nghiệm làm việc',
-        job_title_1: 'An ninh mạng',
-        company_1: 'Fastdo, Đà Nẵng',
-        duration_1: 'Tháng 1/2020 - Hiện tại',
-        responsibilities_1: `
-            <li class="mb-2">Phát triển và bảo trì các ứng dụng phần mềm để nâng cao tính năng và trải nghiệm người dùng.</li>
-            <li class="mb-2">Phối hợp với các nhóm chức năng để xác định và giải quyết các vấn đề kỹ thuật.</li>
-            <li class="mb-2">Thực hiện các tiêu chuẩn coding và thực hành tốt nhất để cải thiện chất lượng mã nguồn.</li>
-            <li class="mb-2">Tham gia đánh giá code (code review) và đưa ra phản hồi mang tính xây dựng.</li>
-            <li>Thực hiện kiểm thử và gỡ lỗi kỹ lưỡng để đảm bảo hiệu suất tối ưu.</li>
-        `,
-
-        // Common
-        view_projects: 'Xem dự án',
-        contact_me: 'Liên hệ tôi'
-    },
-};
-
-// 2. DOM ELEMENTS & STATE
 document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const langToggle = document.getElementById('language-toggle');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbarCollapse = document.getElementById('navbarNav'); // ID chuẩn của Bootstrap menu
 
-    // Lấy trạng thái từ LocalStorage
-    let currentLang = localStorage.getItem('lang') || 'vi'; // Mặc định tiếng Việt
-    const savedTheme = localStorage.getItem('theme');
+  /* ── 1. BACKGROUND PARTICLE CANVAS ── */
+  const bgCanvas = document.getElementById('bgCanvas');
+  const bgCtx    = bgCanvas.getContext('2d');
+  let W, H, particles = [], lines = [];
 
-    // 3. HELPER FUNCTIONS
+  function resizeBg() {
+    W = bgCanvas.width  = window.innerWidth;
+    H = bgCanvas.height = window.innerHeight;
+  }
+  resizeBg();
+  window.addEventListener('resize', resizeBg);
 
-    // Hàm đổi giao diện Sáng/Tối
-    const setTheme = (mode) => {
-        if (mode === 'dark') {
-            body.classList.add('dark');
-            if (darkModeToggle) darkModeToggle.textContent = '☀️'; // Icon mặt trời
-        } else {
-            body.classList.remove('dark');
-            if (darkModeToggle) darkModeToggle.textContent = '🌙'; // Icon mặt trăng
-        }
-        localStorage.setItem('theme', mode);
-    };
-
-    // Hàm cập nhật nội dung theo ngôn ngữ
-    const updateContent = (lang) => {
-        // Cập nhật text cho các thẻ có data-key
-        document.querySelectorAll('[data-key]').forEach(el => {
-            const key = el.dataset.key;
-            if (!translations[lang][key]) return;
-
-            // Nếu là danh sách (UL) hoặc chứa HTML, dùng innerHTML
-            if (el.tagName === 'UL' || el.tagName === 'DIV' || key.includes('responsibilities')) {
-                el.innerHTML = translations[lang][key];
-            } else {
-                el.textContent = translations[lang][key];
-            }
-        });
-
-        // Cập nhật text cho Menu
-        const menuItems = {
-            '../index.html': 'home',
-            '../Experience/index.html': 'experience',
-            '../Education/index.html': 'education',
-            '../Project/index.html': 'project',
-            '../Skills/index.html': 'skills',
-            '../Contact/index.html': 'contact'
-        };
-
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            // Lấy tên file từ đường dẫn (ví dụ: index.html)
-            const pageName = href ? href.split('/').pop() : 'home';
-
-            // Xử lý trường hợp href="#" (trang chủ)
-            const key = (href === '#' || href === 'index.html' || href === '') ? 'home' : menuItems[pageName];
-
-            if (key && translations[lang][key]) {
-                link.textContent = translations[lang][key];
-            }
-        });
-
-        // Cập nhật nút ngôn ngữ
-        if (langToggle) langToggle.textContent = lang.toUpperCase();
-        localStorage.setItem('lang', lang);
-    };
-
-    // 4. INITIALIZE (Khởi chạy)
-
-    // Set theme đã lưu
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else {
-        // Mặc định check theo hệ điều hành nếu chưa set
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTheme('dark');
-        }
-    }
-
-    // Set ngôn ngữ đã lưu
-    updateContent(currentLang);
-
-    // 5. EVENT LISTENERS
-
-    // Toggle Dark Mode
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            const mode = body.classList.contains('dark') ? 'light' : 'dark';
-            setTheme(mode);
-        });
-    }
-
-    // Toggle Language
-    if (langToggle) {
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'vi' ? 'en' : 'vi';
-            updateContent(currentLang);
-        });
-    }
-
-    // Mobile Menu: Tự động đóng khi click vào link (Chuẩn Bootstrap 5)
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Chỉ đóng nếu đang ở chế độ mobile (menu đang mở)
-            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                // Sử dụng Bootstrap API để toggle
-                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                    toggle: true
-                });
-            }
-        });
+  /* Particles */
+  for (let i = 0; i < 90; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 1.5 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      alpha: Math.random() * 0.6 + 0.2
     });
+  }
+
+  function drawBg() {
+    W = bgCanvas.width = window.innerWidth;
+    H = bgCanvas.height = window.innerHeight;
+
+    /* deep gradient background */
+    const grad = bgCtx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, Math.max(W,H)*0.8);
+    grad.addColorStop(0, '#050f24');
+    grad.addColorStop(0.5, '#020b18');
+    grad.addColorStop(1, '#01060f');
+    bgCtx.fillStyle = grad;
+    bgCtx.fillRect(0, 0, W, H);
+
+    /* grid lines */
+    bgCtx.strokeStyle = 'rgba(0,100,200,0.06)';
+    bgCtx.lineWidth = 1;
+    const gs = 60;
+    for (let x = 0; x < W; x += gs) {
+      bgCtx.beginPath(); bgCtx.moveTo(x,0); bgCtx.lineTo(x,H); bgCtx.stroke();
+    }
+    for (let y = 0; y < H; y += gs) {
+      bgCtx.beginPath(); bgCtx.moveTo(0,y); bgCtx.lineTo(W,y); bgCtx.stroke();
+    }
+
+    /* blue accent glow top-center */
+    const glow = bgCtx.createRadialGradient(W*0.42, H*0.45, 0, W*0.42, H*0.45, 260);
+    glow.addColorStop(0, 'rgba(0,80,255,0.18)');
+    glow.addColorStop(1, 'transparent');
+    bgCtx.fillStyle = glow;
+    bgCtx.fillRect(0, 0, W, H);
+
+    /* right glow */
+    const glow2 = bgCtx.createRadialGradient(W*0.85, H*0.6, 0, W*0.85, H*0.6, 200);
+    glow2.addColorStop(0, 'rgba(0,50,180,0.12)');
+    glow2.addColorStop(1, 'transparent');
+    bgCtx.fillStyle = glow2;
+    bgCtx.fillRect(0, 0, W, H);
+
+    /* particles */
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      bgCtx.beginPath();
+      bgCtx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      bgCtx.fillStyle = `rgba(0,200,255,${p.alpha})`;
+      bgCtx.fill();
+    });
+
+    /* connect nearby particles */
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < 100) {
+          bgCtx.strokeStyle = `rgba(0,150,255,${0.12*(1-d/100)})`;
+          bgCtx.lineWidth = 0.5;
+          bgCtx.beginPath();
+          bgCtx.moveTo(particles[i].x, particles[i].y);
+          bgCtx.lineTo(particles[j].x, particles[j].y);
+          bgCtx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(drawBg);
+  }
+  drawBg();
+
+
+  /* ── 2. PROTECTION BARS ANIMATION ── */
+  setTimeout(() => {
+    document.querySelectorAll('.prot-bar').forEach(bar => {
+      const val = bar.dataset.value;
+      bar.style.width = val + '%';
+    });
+  }, 400);
+
+
+  /* ── 3. REAL-TIME MONITOR CHART ── */
+  const monCanvas = document.getElementById('monitorChart');
+  const monCtx = monCanvas.getContext('2d');
+  const monW = 220, monH = 70;
+  monCanvas.width  = monW;
+  monCanvas.height = monH;
+
+  let monPoints = [];
+  for (let i = 0; i < 40; i++) monPoints.push(Math.random() * 40 + 15);
+
+  function drawMonitor() {
+    monCtx.clearRect(0, 0, monW, monH);
+    monCtx.fillStyle = 'rgba(0,10,30,0.5)';
+    monCtx.fillRect(0, 0, monW, monH);
+
+    /* grid */
+    monCtx.strokeStyle = 'rgba(0,229,255,0.08)';
+    monCtx.lineWidth = 0.5;
+    for (let y = 0; y <= monH; y += 14) {
+      monCtx.beginPath(); monCtx.moveTo(0,y); monCtx.lineTo(monW,y); monCtx.stroke();
+    }
+
+    /* area fill */
+    const stepX = monW / (monPoints.length - 1);
+    const grad = monCtx.createLinearGradient(0,0,0,monH);
+    grad.addColorStop(0, 'rgba(0,229,255,0.3)');
+    grad.addColorStop(1, 'rgba(0,229,255,0)');
+
+    monCtx.beginPath();
+    monCtx.moveTo(0, monH - monPoints[0]);
+    monPoints.forEach((v,i) => monCtx.lineTo(i*stepX, monH - v));
+    monCtx.lineTo(monW, monH);
+    monCtx.lineTo(0, monH);
+    monCtx.closePath();
+    monCtx.fillStyle = grad;
+    monCtx.fill();
+
+    /* line */
+    monCtx.beginPath();
+    monCtx.strokeStyle = '#00e5ff';
+    monCtx.lineWidth = 1.5;
+    monCtx.shadowBlur = 6;
+    monCtx.shadowColor = '#00e5ff';
+    monCtx.moveTo(0, monH - monPoints[0]);
+    monPoints.forEach((v,i) => monCtx.lineTo(i*stepX, monH - v));
+    monCtx.stroke();
+    monCtx.shadowBlur = 0;
+
+    /* purple highlight line */
+    monCtx.beginPath();
+    monCtx.strokeStyle = 'rgba(140,60,255,0.5)';
+    monCtx.lineWidth = 1;
+    monCtx.setLineDash([3,5]);
+    monCtx.moveTo(0, monH - monPoints[0] + 10);
+    monPoints.forEach((v,i) => monCtx.lineTo(i*stepX, monH - v + 8));
+    monCtx.stroke();
+    monCtx.setLineDash([]);
+  }
+
+  setInterval(() => {
+    monPoints.shift();
+    monPoints.push(Math.random() * 40 + 15);
+    drawMonitor();
+  }, 120);
+  drawMonitor();
+
+
+  /* ── 4. SESSIONS COUNTER ANIMATION ── */
+  const sessEl = document.getElementById('sessions-count');
+  let currentSess = 2000;
+  const targetSess = 2847;
+  function animSessions() {
+    if (currentSess < targetSess) {
+      currentSess = Math.min(currentSess + 18, targetSess);
+      sessEl.textContent = currentSess.toLocaleString();
+      requestAnimationFrame(animSessions);
+    }
+  }
+  setTimeout(animSessions, 600);
+
+  /* live pulse after reaching target */
+  setInterval(() => {
+    const delta = Math.floor(Math.random() * 5 - 2);
+    const base = parseInt(sessEl.textContent.replace(/,/g,'')) + delta;
+    sessEl.textContent = Math.max(2800, base).toLocaleString();
+  }, 3000);
+
+
+  /* ── 5. GLOBE CANVAS ── */
+  const globeCanvas = document.getElementById('globeCanvas');
+  const gCtx = globeCanvas.getContext('2d');
+  let globeAngle = 0;
+  let globeW, globeH;
+
+  function resizeGlobe() {
+    const cont = document.getElementById('globe-container');
+    globeW = globeCanvas.width  = cont.clientWidth;
+    globeH = globeCanvas.height = cont.clientHeight;
+  }
+  resizeGlobe();
+  window.addEventListener('resize', resizeGlobe);
+
+  /* generate random dots on globe surface */
+  const globeDots = [];
+  for (let i = 0; i < 180; i++) {
+    const lat = (Math.random() - 0.5) * Math.PI;
+    const lon = Math.random() * Math.PI * 2;
+    globeDots.push({ lat, lon,
+      size: Math.random() * 1.5 + 0.5,
+      alpha: Math.random() * 0.6 + 0.2
+    });
+  }
+
+  /* connections between dots */
+  const globeConns = [];
+  for (let i = 0; i < 24; i++) {
+    globeConns.push({
+      a: Math.floor(Math.random() * globeDots.length),
+      b: Math.floor(Math.random() * globeDots.length)
+    });
+  }
+
+  function projectDot(lat, lon, cx, cy, R) {
+    const x = R * Math.cos(lat) * Math.cos(lon + globeAngle);
+    const y = R * Math.cos(lat) * Math.sin(lon + globeAngle);
+    const z = R * Math.sin(lat);
+    return { sx: cx + x, sy: cy - z, visible: y > -R*0.1 };
+  }
+
+  function drawGlobe() {
+    gCtx.clearRect(0, 0, globeW, globeH);
+
+    const cx = globeW / 2;
+    const cy = globeH / 2;
+    const R  = Math.min(globeW, globeH) * 0.42;
+
+    /* outer glow */
+    const radGrad = gCtx.createRadialGradient(cx,cy,R*0.5, cx,cy,R*1.1);
+    radGrad.addColorStop(0, 'rgba(0,60,180,0.0)');
+    radGrad.addColorStop(0.85, 'rgba(0,40,140,0.25)');
+    radGrad.addColorStop(1, 'transparent');
+    gCtx.fillStyle = radGrad;
+    gCtx.beginPath();
+    gCtx.arc(cx,cy,R*1.1,0,Math.PI*2);
+    gCtx.fill();
+
+    /* globe circle */
+    const sGrad = gCtx.createRadialGradient(cx-R*0.3,cy-R*0.3,0, cx,cy,R);
+    sGrad.addColorStop(0, 'rgba(0,60,180,0.18)');
+    sGrad.addColorStop(1, 'rgba(0,20,80,0.08)');
+    gCtx.beginPath();
+    gCtx.arc(cx,cy,R,0,Math.PI*2);
+    gCtx.fillStyle = sGrad;
+    gCtx.fill();
+    gCtx.strokeStyle = 'rgba(0,229,255,0.2)';
+    gCtx.lineWidth = 1;
+    gCtx.stroke();
+
+    /* latitude lines */
+    for (let lat = -60; lat <= 60; lat += 30) {
+      const latR = lat * Math.PI / 180;
+      const yr = cy - R * Math.sin(latR);
+      const xr = R * Math.cos(latR);
+      gCtx.beginPath();
+      gCtx.ellipse(cx, yr, xr, xr * 0.15, 0, 0, Math.PI*2);
+      gCtx.strokeStyle = 'rgba(0,100,200,0.15)';
+      gCtx.lineWidth = 0.5;
+      gCtx.stroke();
+    }
+
+    /* connections */
+    globeConns.forEach(conn => {
+      const a = globeDots[conn.a];
+      const b = globeDots[conn.b];
+      const pa = projectDot(a.lat, a.lon, cx, cy, R);
+      const pb = projectDot(b.lat, b.lon, cx, cy, R);
+      if (pa.visible && pb.visible) {
+        gCtx.beginPath();
+        gCtx.moveTo(pa.sx, pa.sy);
+        gCtx.lineTo(pb.sx, pb.sy);
+        gCtx.strokeStyle = 'rgba(0,229,255,0.15)';
+        gCtx.lineWidth = 0.5;
+        gCtx.stroke();
+      }
+    });
+
+    /* dots */
+    globeDots.forEach(d => {
+      const p = projectDot(d.lat, d.lon, cx, cy, R);
+      if (!p.visible) return;
+      gCtx.beginPath();
+      gCtx.arc(p.sx, p.sy, d.size, 0, Math.PI*2);
+      gCtx.fillStyle = `rgba(0,229,255,${d.alpha})`;
+      gCtx.fill();
+    });
+
+    globeAngle += 0.004;
+    requestAnimationFrame(drawGlobe);
+  }
+  drawGlobe();
+
+
+  /* ── 6. FIREWALL CELL RANDOM BLINK ── */
+  function randomFirewallBlink() {
+    const cells = document.querySelectorAll('.fw-cell');
+    const pick = cells[Math.floor(Math.random() * cells.length)];
+    if (pick) {
+      pick.classList.toggle('fw-active');
+      setTimeout(randomFirewallBlink, 200 + Math.random() * 400);
+    }
+  }
+  randomFirewallBlink();
+
+
+  /* ── 7. ENTRANCE ANIMATIONS ── */
+  const animItems = [
+    '#widget-protection',
+    '#widget-monitor',
+    '#widget-sessions',
+    '#widget-connect',
+    '#widget-firewall',
+    '#globe-container',
+    '#hero-photo',
+    '#name-card',
+    '.cta-buttons',
+    '#competencies',
+  ];
+
+  animItems.forEach((sel, i) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 150 + i * 90);
+  });
+
+
+  /* ── 8. TYPING EFFECT on tagline ── */
+  const tagEl = document.querySelector('.title-tagline');
+  if (tagEl) {
+    const original = tagEl.innerHTML;
+    tagEl.innerHTML = '';
+    setTimeout(() => {
+      tagEl.innerHTML = original;
+    }, 900);
+  }
+
 });

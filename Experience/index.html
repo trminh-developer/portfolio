@@ -1,121 +1,106 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="../main/Vest.png">
-    <link rel="manifest" href="/manifest.json">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../main/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience – Cyber Defender</title>
+  <meta name="description" content="Work experience of Tran Duc Minh (Alex) – Cyber Security Specialist.">
+  <link rel="shortcut icon" type="image/x-icon" href="../main/Vest.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../main/style.css">
+  <link rel="stylesheet" href="../main/subpage.css">
 </head>
-
 <body>
+  <canvas id="bgCanvas"></canvas>
+  <div class="scanline"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="../main/index.html">
-                <img src="../main/Vest.png" alt="Logo" style="width: 40px; height: 40px; object-fit: cover;">
-                <span class="fw-bold">Tran Duc Minh</span>
-            </a>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <div class="brand-icon"><i class="bi bi-shield-lock-fill"></i></div>
+      <div class="brand-text">
+        <span class="brand-title">CYBER<br>DEFENDER</span>
+        <span class="brand-sub">PROTECTING THE DIGITAL FUTURE</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../main/index.html" class="nav-link">HOME</a></li>
+      <li><a href="../Experience/index.html" class="nav-link active">EXPERIENCE</a></li>
+      <li><a href="../Skills/index.html" class="nav-link">SKILLS</a></li>
+      <li><a href="../Project/index.html" class="nav-link">PROJECTS</a></li>
+      <li><a href="../Contact/index.html" class="nav-link">CONTACT</a></li>
+    </ul>
+    <button class="security-badge">
+      <i class="bi bi-shield-lock-fill"></i>
+      <span>YOUR SECURITY<br><strong>OUR PRIORITY</strong></span>
+    </button>
+  </nav>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!-- CONTENT -->
+  <div class="subpage-wrapper">
+    <div class="page-container">
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../main/index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold text-primary" href="../Experience/index.html">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Education/index.html">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Project/index.html">Project</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Skills/index.html">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Contact/index.html">Contact</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <button class="nav-link btn" onclick="document.body.classList.toggle('dark')">🌙</button>
-                    </li> -->
-                </ul>
+      <div class="section-header fade-up">
+        <span class="page-tag"><i class="bi bi-briefcase-fill"></i> &nbsp;CAREER PATH</span>
+        <h1>WORK EXPERIENCE</h1>
+        <p>Professional journey in the cyber security domain.</p>
+        <div class="header-line"></div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="cyber-card">
+            <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            <div class="job-header">
+              <div>
+                <div class="job-title">Cyber Security Engineer</div>
+                <div class="job-company">Fastdo &nbsp;·&nbsp; Da Nang, Vietnam</div>
+              </div>
+              <div class="job-badge"><i class="bi bi-calendar3"></i> Sep 2029 – Present</div>
             </div>
+            <ul class="job-duties">
+              <li>Develop and maintain security applications to enhance system protection.</li>
+              <li>Collaborate with cross-functional teams to identify and resolve vulnerabilities.</li>
+              <li>Implement security standards and best practices to improve code quality.</li>
+              <li>Participate in penetration testing and provide actionable remediation feedback.</li>
+              <li>Perform thorough threat analysis and debugging to ensure optimal security posture.</li>
+            </ul>
+          </div>
         </div>
-    </nav>
 
-    <main class="container py-5 mt-5">
-        <section id="experience" class="py-4">
-
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h2 class="display-6 fw-bold text-dark mb-3">
-                        <i class="bi bi-briefcase-fill text-primary me-2"></i>
-                        <span data-key="experience_title">Work Experience</span>
-                    </h2>
-                    <div class="vr bg-primary" style="height: 3px; width: 60px; opacity: 1;"></div>
-                </div>
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="cyber-card">
+            <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+            <div class="job-header">
+              <div>
+                <div class="job-title">Security Analyst Intern</div>
+                <div class="job-company">Tech Solutions &nbsp;·&nbsp; Da Nang, Vietnam</div>
+              </div>
+              <div class="job-badge"><i class="bi bi-calendar3"></i> 2035 – 2039</div>
             </div>
+            <ul class="job-duties">
+              <li>Assisted senior security engineers in maintaining web application firewalls.</li>
+              <li>Conducted log analysis and incident response triage for client environments.</li>
+              <li>Documented security policies and contributed to compliance reporting.</li>
+            </ul>
+          </div>
+        </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
+      </div>
+    </div>
+  </div>
 
-                        <div class="timeline-item pb-5">
-                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-2">
-                                <div>
-                                    <h4 class="fw-bold text-primary mb-1" data-key="job_title_1">Programmer</h4>
-                                    <h5 class="fw-semibold text-dark" data-key="company_1">Company Name</h5>
-                                </div>
-                                <span
-                                    class="badge bg-light text-dark border px-3 py-2 rounded-pill mt-2 mt-md-0 shadow-sm">
-                                    <i class="bi bi-calendar3 me-2"></i>
-                                    <span data-key="duration_1">Sep 2029 - Present</span>
-                                </span>
-                            </div>
+  <footer class="cyber-footer">
+    <span>© 2025</span> &nbsp;Tran Duc Minh (Alex) &nbsp;·&nbsp; <span>Cyber Security Specialist</span>
+  </footer>
 
-                            <div class="mt-3 text-secondary ps-3 border-start border-3 border-light">
-                                <ul class="list-unstyled mb-0" data-key="responsibilities_1">
-                                    <li>Loading...</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-2">
-                                <div>
-                                    <h4 class="fw-bold text-primary mb-1">Senior Developer</h4>
-                                    <h5 class="fw-semibold text-dark">Previous Company</h5>
-                                </div>
-                                <span
-                                    class="badge bg-light text-dark border px-3 py-2 rounded-pill mt-2 mt-md-0 shadow-sm">
-                                    <i class="bi bi-calendar3 me-2"></i>2035 - 2039
-                                </span>
-                            </div>
-                            <div class="mt-3 text-secondary ps-3 border-start border-3 border-light">
-                                <p>Assisted senior developers in maintaining web applications...</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../script.js"></script>
+  <script src="../main/subpage.js"></script>
 </body>
-
 </html>
