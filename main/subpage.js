@@ -131,4 +131,44 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeObs.observe(el);
   });
 
+
+  /* ── 5. HAMBURGER MENU ── */
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+
+  function openDrawer() {
+    hamburgerBtn.classList.add('nav-open');
+    mobileDrawer.classList.add('nav-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeDrawer() {
+    hamburgerBtn.classList.remove('nav-open');
+    mobileDrawer.classList.remove('nav-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  if (hamburgerBtn && mobileDrawer) {
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hamburgerBtn.classList.contains('nav-open') ? closeDrawer() : openDrawer();
+    });
+
+    /* Close when a drawer link is clicked */
+    mobileDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    /* Close on outside click */
+    document.addEventListener('click', (e) => {
+      if (!mobileDrawer.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+        closeDrawer();
+      }
+    });
+
+    /* Auto-close if window resizes to desktop */
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeDrawer();
+    });
+  }
+
 });

@@ -1,17 +1,14 @@
-/* ============================================================
-   CYBER DEFENDER – JavaScript
-   Animations: background canvas, monitor chart, globe, counters
-   ============================================================ */
+/* Animations: background canvas, monitor chart, globe, counters */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── 1. BACKGROUND PARTICLE CANVAS ── */
+  /*  1. BACKGROUND PARTICLE CANVAS  */
   const bgCanvas = document.getElementById('bgCanvas');
-  const bgCtx    = bgCanvas.getContext('2d');
+  const bgCtx = bgCanvas.getContext('2d');
   let W, H, particles = [], lines = [];
 
   function resizeBg() {
-    W = bgCanvas.width  = window.innerWidth;
+    W = bgCanvas.width = window.innerWidth;
     H = bgCanvas.height = window.innerHeight;
   }
   resizeBg();
@@ -34,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     H = bgCanvas.height = window.innerHeight;
 
     /* deep gradient background */
-    const grad = bgCtx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, Math.max(W,H)*0.8);
+    const grad = bgCtx.createRadialGradient(W * 0.5, H * 0.5, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.8);
     grad.addColorStop(0, '#050f24');
     grad.addColorStop(0.5, '#020b18');
     grad.addColorStop(1, '#01060f');
@@ -46,21 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
     bgCtx.lineWidth = 1;
     const gs = 60;
     for (let x = 0; x < W; x += gs) {
-      bgCtx.beginPath(); bgCtx.moveTo(x,0); bgCtx.lineTo(x,H); bgCtx.stroke();
+      bgCtx.beginPath(); bgCtx.moveTo(x, 0); bgCtx.lineTo(x, H); bgCtx.stroke();
     }
     for (let y = 0; y < H; y += gs) {
-      bgCtx.beginPath(); bgCtx.moveTo(0,y); bgCtx.lineTo(W,y); bgCtx.stroke();
+      bgCtx.beginPath(); bgCtx.moveTo(0, y); bgCtx.lineTo(W, y); bgCtx.stroke();
     }
 
     /* blue accent glow top-center */
-    const glow = bgCtx.createRadialGradient(W*0.42, H*0.45, 0, W*0.42, H*0.45, 260);
+    const glow = bgCtx.createRadialGradient(W * 0.42, H * 0.45, 0, W * 0.42, H * 0.45, 260);
     glow.addColorStop(0, 'rgba(0,80,255,0.18)');
     glow.addColorStop(1, 'transparent');
     bgCtx.fillStyle = glow;
     bgCtx.fillRect(0, 0, W, H);
 
     /* right glow */
-    const glow2 = bgCtx.createRadialGradient(W*0.85, H*0.6, 0, W*0.85, H*0.6, 200);
+    const glow2 = bgCtx.createRadialGradient(W * 0.85, H * 0.6, 0, W * 0.85, H * 0.6, 200);
     glow2.addColorStop(0, 'rgba(0,50,180,0.12)');
     glow2.addColorStop(1, 'transparent');
     bgCtx.fillStyle = glow2;
@@ -72,19 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
       bgCtx.beginPath();
-      bgCtx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       bgCtx.fillStyle = `rgba(0,200,255,${p.alpha})`;
       bgCtx.fill();
     });
 
     /* connect nearby particles */
     for (let i = 0; i < particles.length; i++) {
-      for (let j = i+1; j < particles.length; j++) {
+      for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
-        const d  = Math.sqrt(dx*dx + dy*dy);
+        const d = Math.sqrt(dx * dx + dy * dy);
         if (d < 100) {
-          bgCtx.strokeStyle = `rgba(0,150,255,${0.12*(1-d/100)})`;
+          bgCtx.strokeStyle = `rgba(0,150,255,${0.12 * (1 - d / 100)})`;
           bgCtx.lineWidth = 0.5;
           bgCtx.beginPath();
           bgCtx.moveTo(particles[i].x, particles[i].y);
@@ -99,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   drawBg();
 
 
-  /* ── 2. PROTECTION BARS ANIMATION ── */
+  /*  2. PROTECTION BARS ANIMATION  */
   setTimeout(() => {
     document.querySelectorAll('.prot-bar').forEach(bar => {
       const val = bar.dataset.value;
@@ -108,11 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 400);
 
 
-  /* ── 3. REAL-TIME MONITOR CHART ── */
+  /*  3. REAL-TIME MONITOR CHART  */
   const monCanvas = document.getElementById('monitorChart');
   const monCtx = monCanvas.getContext('2d');
   const monW = 220, monH = 70;
-  monCanvas.width  = monW;
+  monCanvas.width = monW;
   monCanvas.height = monH;
 
   let monPoints = [];
@@ -127,18 +124,18 @@ document.addEventListener('DOMContentLoaded', () => {
     monCtx.strokeStyle = 'rgba(0,229,255,0.08)';
     monCtx.lineWidth = 0.5;
     for (let y = 0; y <= monH; y += 14) {
-      monCtx.beginPath(); monCtx.moveTo(0,y); monCtx.lineTo(monW,y); monCtx.stroke();
+      monCtx.beginPath(); monCtx.moveTo(0, y); monCtx.lineTo(monW, y); monCtx.stroke();
     }
 
     /* area fill */
     const stepX = monW / (monPoints.length - 1);
-    const grad = monCtx.createLinearGradient(0,0,0,monH);
+    const grad = monCtx.createLinearGradient(0, 0, 0, monH);
     grad.addColorStop(0, 'rgba(0,229,255,0.3)');
     grad.addColorStop(1, 'rgba(0,229,255,0)');
 
     monCtx.beginPath();
     monCtx.moveTo(0, monH - monPoints[0]);
-    monPoints.forEach((v,i) => monCtx.lineTo(i*stepX, monH - v));
+    monPoints.forEach((v, i) => monCtx.lineTo(i * stepX, monH - v));
     monCtx.lineTo(monW, monH);
     monCtx.lineTo(0, monH);
     monCtx.closePath();
@@ -152,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     monCtx.shadowBlur = 6;
     monCtx.shadowColor = '#00e5ff';
     monCtx.moveTo(0, monH - monPoints[0]);
-    monPoints.forEach((v,i) => monCtx.lineTo(i*stepX, monH - v));
+    monPoints.forEach((v, i) => monCtx.lineTo(i * stepX, monH - v));
     monCtx.stroke();
     monCtx.shadowBlur = 0;
 
@@ -160,9 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
     monCtx.beginPath();
     monCtx.strokeStyle = 'rgba(140,60,255,0.5)';
     monCtx.lineWidth = 1;
-    monCtx.setLineDash([3,5]);
+    monCtx.setLineDash([3, 5]);
     monCtx.moveTo(0, monH - monPoints[0] + 10);
-    monPoints.forEach((v,i) => monCtx.lineTo(i*stepX, monH - v + 8));
+    monPoints.forEach((v, i) => monCtx.lineTo(i * stepX, monH - v + 8));
     monCtx.stroke();
     monCtx.setLineDash([]);
   }
@@ -175,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   drawMonitor();
 
 
-  /* ── 4. SESSIONS COUNTER ANIMATION ── */
+  /*  4. SESSIONS COUNTER ANIMATION  */
   const sessEl = document.getElementById('sessions-count');
   let currentSess = 2000;
   const targetSess = 2847;
@@ -191,12 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* live pulse after reaching target */
   setInterval(() => {
     const delta = Math.floor(Math.random() * 5 - 2);
-    const base = parseInt(sessEl.textContent.replace(/,/g,'')) + delta;
+    const base = parseInt(sessEl.textContent.replace(/,/g, '')) + delta;
     sessEl.textContent = Math.max(2800, base).toLocaleString();
   }, 3000);
 
 
-  /* ── 5. GLOBE CANVAS ── */
+  /*  5. GLOBE CANVAS  */
   const globeCanvas = document.getElementById('globeCanvas');
   const gCtx = globeCanvas.getContext('2d');
   let globeAngle = 0;
@@ -204,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resizeGlobe() {
     const cont = document.getElementById('globe-container');
-    globeW = globeCanvas.width  = cont.clientWidth;
+    globeW = globeCanvas.width = cont.clientWidth;
     globeH = globeCanvas.height = cont.clientHeight;
   }
   resizeGlobe();
@@ -215,7 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < 180; i++) {
     const lat = (Math.random() - 0.5) * Math.PI;
     const lon = Math.random() * Math.PI * 2;
-    globeDots.push({ lat, lon,
+    globeDots.push({
+      lat, lon,
       size: Math.random() * 1.5 + 0.5,
       alpha: Math.random() * 0.6 + 0.2
     });
@@ -234,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const x = R * Math.cos(lat) * Math.cos(lon + globeAngle);
     const y = R * Math.cos(lat) * Math.sin(lon + globeAngle);
     const z = R * Math.sin(lat);
-    return { sx: cx + x, sy: cy - z, visible: y > -R*0.1 };
+    return { sx: cx + x, sy: cy - z, visible: y > -R * 0.1 };
   }
 
   function drawGlobe() {
@@ -242,24 +240,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cx = globeW / 2;
     const cy = globeH / 2;
-    const R  = Math.min(globeW, globeH) * 0.42;
+    const R = Math.min(globeW, globeH) * 0.42;
 
     /* outer glow */
-    const radGrad = gCtx.createRadialGradient(cx,cy,R*0.5, cx,cy,R*1.1);
+    const radGrad = gCtx.createRadialGradient(cx, cy, R * 0.5, cx, cy, R * 1.1);
     radGrad.addColorStop(0, 'rgba(0,60,180,0.0)');
     radGrad.addColorStop(0.85, 'rgba(0,40,140,0.25)');
     radGrad.addColorStop(1, 'transparent');
     gCtx.fillStyle = radGrad;
     gCtx.beginPath();
-    gCtx.arc(cx,cy,R*1.1,0,Math.PI*2);
+    gCtx.arc(cx, cy, R * 1.1, 0, Math.PI * 2);
     gCtx.fill();
 
     /* globe circle */
-    const sGrad = gCtx.createRadialGradient(cx-R*0.3,cy-R*0.3,0, cx,cy,R);
+    const sGrad = gCtx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, 0, cx, cy, R);
     sGrad.addColorStop(0, 'rgba(0,60,180,0.18)');
     sGrad.addColorStop(1, 'rgba(0,20,80,0.08)');
     gCtx.beginPath();
-    gCtx.arc(cx,cy,R,0,Math.PI*2);
+    gCtx.arc(cx, cy, R, 0, Math.PI * 2);
     gCtx.fillStyle = sGrad;
     gCtx.fill();
     gCtx.strokeStyle = 'rgba(0,229,255,0.2)';
@@ -272,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const yr = cy - R * Math.sin(latR);
       const xr = R * Math.cos(latR);
       gCtx.beginPath();
-      gCtx.ellipse(cx, yr, xr, xr * 0.15, 0, 0, Math.PI*2);
+      gCtx.ellipse(cx, yr, xr, xr * 0.15, 0, 0, Math.PI * 2);
       gCtx.strokeStyle = 'rgba(0,100,200,0.15)';
       gCtx.lineWidth = 0.5;
       gCtx.stroke();
@@ -299,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const p = projectDot(d.lat, d.lon, cx, cy, R);
       if (!p.visible) return;
       gCtx.beginPath();
-      gCtx.arc(p.sx, p.sy, d.size, 0, Math.PI*2);
+      gCtx.arc(p.sx, p.sy, d.size, 0, Math.PI * 2);
       gCtx.fillStyle = `rgba(0,229,255,${d.alpha})`;
       gCtx.fill();
     });
@@ -310,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
   drawGlobe();
 
 
-  /* ── 6. FIREWALL CELL RANDOM BLINK ── */
+  /*  6. FIREWALL CELL RANDOM BLINK  */
   function randomFirewallBlink() {
     const cells = document.querySelectorAll('.fw-cell');
     const pick = cells[Math.floor(Math.random() * cells.length)];
@@ -322,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
   randomFirewallBlink();
 
 
-  /* ── 7. ENTRANCE ANIMATIONS ── */
+  /*  7. ENTRANCE ANIMATIONS  */
   const animItems = [
     '#widget-protection',
     '#widget-monitor',
@@ -349,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* ── 8. TYPING EFFECT on tagline ── */
+  /*  8. TYPING EFFECT on tagline  */
   const tagEl = document.querySelector('.title-tagline');
   if (tagEl) {
     const original = tagEl.innerHTML;
@@ -360,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ── 9. HAMBURGER MENU ── */
+  /*  9. HAMBURGER MENU  */
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileDrawer = document.getElementById('mobile-nav-drawer');
 
