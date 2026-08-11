@@ -1,118 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tran Duc Minh</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../main/Vest.png">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
-    rel="stylesheet">
+  <meta name="description" content="Work experience of Tran Duc Minh - IT Support Specialist & System Administrator.">
+  <title>Experience – Tran Duc Minh</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../Main/Vest.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../main/style.css">
-  <link rel="stylesheet" href="../main/subpage.css">
+  <link rel="stylesheet" href="../Main/style.css">
+  <link rel="stylesheet" href="../Main/subpage.css">
 </head>
-
 <body>
-  <canvas id="bgCanvas"></canvas>
-  <div class="scanline"></div>
+  <div class="page-bg"></div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-brand">
-      <div class="brand-icon"><i class="bi bi-shield-lock-fill"></i></div>
-      <div class="brand-text">
-        <span class="brand-title">CYBER<br>DEFENDER</span>
-        <span class="brand-sub">PROTECTING THE DIGITAL FUTURE</span>
-      </div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="../main/index.html" class="nav-link">HOME</a></li>
-      <li><a href="../Experience/index.html" class="nav-link active">EXPERIENCE</a></li>
-      <li><a href="../Skills/index.html" class="nav-link">SKILLS</a></li>
-      <li><a href="../Project/index.html" class="nav-link">PROJECTS</a></li>
-      <li><a href="../Contact/index.html" class="nav-link">CONTACT</a></li>
-    </ul>
-    <button class="security-badge">
-      <i class="bi bi-shield-lock-fill"></i>
-      <span>YOUR SECURITY<br><strong>OUR PRIORITY</strong></span>
+  <header class="site-header">
+    <a class="brand" href="../Main/index.html">
+      <img class="brand-mark" src="../Main/Vest.png" alt="Tran Duc Minh" />
+      <span class="brand-text">
+        <strong>Tran Duc Minh</strong>
+        <small>HelpDesk Specialist</small>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-    <!-- Hamburger toggle (mobile only) -->
-    <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="ham-line"></span>
-      <span class="ham-line"></span>
-      <span class="ham-line"></span>
-    </button>
-  </nav>
+    <nav class="site-nav" id="site-nav">
+      <a href="../Main/index.html">Home</a>
+      <a href="../Experience/index.html" class="active">Experience</a>
+      <a href="../Skills/index.html">Skills</a>
+      <a href="../Project/index.html">Projects</a>
+      <a href="../Contact/index.html">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Mobile nav drawer -->
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <ul class="mobile-nav-links">
-      <li><a href="../main/index.html" class="mobile-nav-link" id="mnav-home">HOME</a></li>
-      <li><a href="../Experience/index.html" class="mobile-nav-link active" id="mnav-experience">EXPERIENCE</a></li>
-      <li><a href="../Skills/index.html" class="mobile-nav-link" id="mnav-skills">SKILLS</a></li>
-      <li><a href="../Project/index.html" class="mobile-nav-link" id="mnav-projects">PROJECTS</a></li>
-      <li><a href="../Contact/index.html" class="mobile-nav-link" id="mnav-contact">CONTACT</a></li>
-    </ul>
-  </div>
-
-  <!-- CONTENT -->
   <div class="subpage-wrapper">
     <div class="page-container">
 
       <div class="section-header fade-up">
         <span class="page-tag"><i class="bi bi-briefcase-fill"></i> &nbsp;CAREER PATH</span>
         <h1>WORK EXPERIENCE</h1>
-        <p>Professional journey in the cyber security domain.</p>
+        <p>Professional journey in IT support and system administration.</p>
         <div class="header-line"></div>
       </div>
 
-      <!-- Timeline -->
       <div class="timeline">
 
         <div class="timeline-item fade-up">
           <div class="timeline-dot"></div>
-          <div class="cyber-card">
-            <div class="corner corner-tl"></div>
-            <div class="corner corner-tr"></div>
-            <div class="corner corner-bl"></div>
-            <div class="corner corner-br"></div>
+          <div class="sub-card">
             <div class="job-header">
               <div>
-                <div class="job-title">Cyber Security Intern</div>
+                <div class="job-title">IT Support Specialist</div>
                 <div class="job-company">Da Nang, Vietnam</div>
               </div>
-              <div class="job-badge"><i class="bi bi-calendar3"></i> Present - Sep 2029</div>
+              <div class="job-badge"><i class="bi bi-calendar3"></i> Present – Sep 2029</div>
             </div>
             <ul class="job-duties">
-              <li>Assisted senior security engineers in maintaining web application firewalls.</li>
-              <li>Conducted log analysis and incident response triage for client environments.</li>
-              <li>Documented security policies and contributed to compliance reporting.</li>
+              <li>Provide Tier 1–3 helpdesk support for 200+ end-users across multiple departments.</li>
+              <li>Manage Active Directory, user provisioning, and group policy configuration.</li>
+              <li>Maintain and troubleshoot Windows/Linux workstations, printers, and network equipment.</li>
             </ul>
           </div>
         </div>
 
         <div class="timeline-item fade-up">
           <div class="timeline-dot"></div>
-          <div class="cyber-card">
-            <div class="corner corner-tl"></div>
-            <div class="corner corner-tr"></div>
-            <div class="corner corner-bl"></div>
-            <div class="corner corner-br"></div>
+          <div class="sub-card">
             <div class="job-header">
               <div>
-                <div class="job-title">Cyber Security Engineer</div>
+                <div class="job-title">System Administrator</div>
                 <div class="job-company">F &nbsp;·&nbsp; Da Nang, Vietnam</div>
               </div>
               <div class="job-badge"><i class="bi bi-calendar3"></i> 2035 – 2039</div>
             </div>
             <ul class="job-duties">
-              <li>Devolop security applications to enhance system protection.</li>
-              <li>Collaborate with cross-functional teams to identify and resolve vulnerabilities.</li>
-              <li>Implement security standards and best practices to improve code quality.</li>
-              <li>Participate in penetration testing and provide actionable remediation feedback.</li>
-              <li>Perform thorough threat analysis and debugging to ensure optimal security posture.</li>
+              <li>Administered server infrastructure including Windows Server, DNS, DHCP, and file shares.</li>
+              <li>Deployed and managed Microsoft 365 and Google Workspace for organization-wide collaboration.</li>
+              <li>Implemented IT asset management processes, reducing hardware downtime by 40%.</li>
+              <li>Created automation scripts (PowerShell/Python) to streamline repetitive maintenance tasks.</li>
+              <li>Led endpoint security initiatives and patch management across the enterprise.</li>
             </ul>
           </div>
         </div>
@@ -121,11 +88,10 @@
     </div>
   </div>
 
-  <footer class="cyber-footer">
-    <span>© 2025</span> &nbsp;Tran Duc Minh (Alex) &nbsp;·&nbsp; <span>Cyber Security Specialist</span>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Tran Duc Minh. IT Support Specialist &amp; System Administrator.</p>
   </footer>
 
-  <script src="../main/subpage.js"></script>
+  <script src="../Main/subpage.js"></script>
 </body>
-
 </html>
