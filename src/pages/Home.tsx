@@ -239,7 +239,7 @@ export default function Home() {
         <p>Looking for a dependable HelpDesk specialist or IT support engineer? I’m open to opportunities that need calm problem-solving and polished support operations.</p>
         <ul className="contact-list">
           <li><i className="bi bi-telephone-fill"></i> 0382 652 732</li>
-          <li><i className="bi bi-envelope-fill"></i> trminhlaptrinhvien@gmail.com</li>
+          <li><i className="bi bi-envelope-fill"></i> trminhithelpdesk@outlook.com</li>
           <li><i className="bi bi-geo-alt-fill"></i> Quang Tri, Vietnam</li>
         </ul>
       </div>

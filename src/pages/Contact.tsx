@@ -24,11 +24,11 @@ export default function Contact() {
             </div>
           </div>
 
-          <a href="mailto:trminhlaptrinhvien@gmail.com" className="contact-item">
+          <a href="mailto:trminhithelpdesk@outlook.com" className="contact-item">
             <div className="contact-icon ci-amber"><i className="bi bi-envelope-fill"></i></div>
             <div>
               <div className="contact-info-label">EMAIL</div>
-              <div className="contact-info-value">trminhlaptrinhvien@gmail.com</div>
+                                  <div className="contact-info-value">trminhithelpdesk@outlook.com</div>
             </div>
           </a>
 

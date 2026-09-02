@@ -40,9 +40,8 @@ export default function Skills() {
             <div className="skill-tags">
               <span className="skill-tag"><i className="bi bi-terminal-fill"></i> PowerShell / Scripting</span>
               <span className="skill-tag"><i className="bi bi-c-square"></i> C++</span>
-              <span className="skill-tag"><i className="bi bi-cup-hot"></i> Java</span>
               <span className="skill-tag"><i className="bi bi-filetype-py"></i> Python</span>
-              <span className="skill-tag"><i className="bi bi-database-fill"></i> SQL / MySQL</span>
+              <span className="skill-tag"><i className="bi bi-database-fill"></i> SQL Server / MySQL</span>
               <span className="skill-tag"><i className="bi bi-filetype-html"></i> HTML / CSS / JS</span>
               <span className="skill-tag"><i className="bi bi-filetype-tsx"></i> TypeScript</span>
               <span className="skill-tag"><i className="bi bi-diagram-3-fill"></i> Process Improvement</span>
