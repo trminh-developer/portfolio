@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <>
-      <main id="home">
+      
     <section className="hero section-card">
       <div className="hero-copy">
         <p className="eyebrow">Hi, I&apos;m Minh 👋</p>
@@ -252,7 +252,7 @@ export default function Home() {
         <button className="btn btn-primary" type="submit">Send message</button>
       </form>
     </section>
-  </main>
+  
     </>
   );
 }
