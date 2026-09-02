@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
+    <main id="home">
     
     <>
       
@@ -256,5 +257,6 @@ export default function Home() {
   
     </>
     
+    </main>
   );
 }
