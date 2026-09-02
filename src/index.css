@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    IT SUPPORT PROFESSIONAL – Main Stylesheet
    Clean, corporate, dark control-center aesthetic
    ============================================================ */
@@ -174,7 +174,7 @@ body {
    ============================================================ */
 main {
   position: relative; z-index: 1;
-  max-width: 1120px;
+  max-width: 900px;
   margin: 0 auto;
   padding: calc(var(--header-h) + 32px) 24px 64px;
 }
