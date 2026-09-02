@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
+    
     <>
       
     <section className="hero section-card">
@@ -254,5 +255,6 @@ export default function Home() {
     </section>
   
     </>
+    
   );
 }

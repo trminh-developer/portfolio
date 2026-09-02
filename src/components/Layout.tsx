@@ -79,7 +79,7 @@ export default function Layout() {
         </nav>
       </header>
 
-      <Outlet />
+      <main style={{ maxWidth: "600px", margin: "0 auto", padding: "80px 20px" }}><Outlet /></main>
 
       <footer className="site-footer">
         <p>© {new Date().getFullYear()} Tran Duc Minh. HelpDesk Specialist & IT Support Engineer.</p>
