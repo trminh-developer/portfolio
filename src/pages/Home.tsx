@@ -1,8 +1,42 @@
 
 
 import { Link } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.current) return;
+
+    setIsSubmitting(true);
+    setFormStatus('idle');
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_id',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_id',
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'public_key'
+      )
+      .then(
+        () => {
+          setFormStatus('success');
+          form.current?.reset();
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setFormStatus('error');
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
   return (
     <main id="home">
     
@@ -244,14 +278,18 @@ export default function Home() {
         </ul>
       </div>
 
-      <form className="contact-form">
+            <form ref={form} onSubmit={sendEmail} className="contact-form">
         <div className="form-row">
-          <input type="text" placeholder="Your name" required />
-          <input type="email" placeholder="Email" required />
+          <input type="text" name="user_name" placeholder="Your name" required />
+          <input type="email" name="user_email" placeholder="Email" required />
         </div>
-        <input type="text" placeholder="Subject" required />
-        <textarea rows={5} placeholder="Tell me about your project or team" required></textarea>
-        <button className="btn btn-primary" type="submit">Send message</button>
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea rows={5} name="message" placeholder="Tell me about your project or team" required></textarea>
+        <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Sending...' : 'Send message'}
+        </button>
+        {formStatus === 'success' && <p style={{color: '#10b981', marginTop: '10px'}}>Message sent successfully!</p>}
+        {formStatus === 'error' && <p style={{color: '#ef4444', marginTop: '10px'}}>Failed to send message. Please try again.</p>}
       </form>
     </section>
   
@@ -260,3 +298,4 @@ export default function Home() {
     </main>
   );
 }
+
