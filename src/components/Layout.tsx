@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import BackgroundCanvas from './BackgroundCanvas';
+import { useState, useEffect } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import BackgroundCanvas from "./BackgroundCanvas";
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,41 +8,47 @@ export default function Layout() {
 
   useEffect(() => {
     setIsMenuOpen(false);
-    
+
     // Skill bar animation
-    const bars = document.querySelectorAll('.skill-bar-fill');
+    const bars = document.querySelectorAll(".skill-bar-fill");
     if (bars.length) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const bar = entry.target as HTMLElement;
-            const value = bar.getAttribute('data-value');
-            if (value) bar.style.width = value + '%';
-            observer.unobserve(bar);
-          }
-        });
-      }, { threshold: 0.3 });
-      bars.forEach(bar => observer.observe(bar));
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const bar = entry.target as HTMLElement;
+              const value = bar.getAttribute("data-value");
+              if (value) bar.style.width = value + "%";
+              observer.unobserve(bar);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      bars.forEach((bar) => observer.observe(bar));
     }
 
     // Fade-up animation
-    const fadeEls = document.querySelectorAll('.fade-up');
-    if (fadeEls.length && 'IntersectionObserver' in window) {
-      const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).style.animationPlayState = 'running';
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
+    const fadeEls = document.querySelectorAll(".fade-up");
+    if (fadeEls.length && "IntersectionObserver" in window) {
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              (entry.target as HTMLElement).style.animationPlayState =
+                "running";
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
 
-      fadeEls.forEach(el => {
-        (el as HTMLElement).style.animationPlayState = 'paused';
+      fadeEls.forEach((el) => {
+        (el as HTMLElement).style.animationPlayState = "paused";
         fadeObserver.observe(el);
       });
     }
-
   }, [location]);
 
   return (
@@ -52,7 +58,7 @@ export default function Layout() {
 
       <header className="site-header">
         <NavLink className="brand" to="/">
-          <img className="brand-mark" src="/Vest.png" alt="Tran Duc Minh" />
+          <img className="brand-mark" src="/CV.png" alt="Tran Duc Minh" />
           <span className="brand-text">
             <strong>Tran Duc Minh</strong>
             <small>HelpDesk Specialist</small>
@@ -70,7 +76,7 @@ export default function Layout() {
           <span></span>
         </button>
 
-        <nav className={`site-nav ${isMenuOpen ? 'open' : ''}`}>
+        <nav className={`site-nav ${isMenuOpen ? "open" : ""}`}>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/experience">Experience</NavLink>
           <NavLink to="/skills">Skills</NavLink>
@@ -82,7 +88,10 @@ export default function Layout() {
       <Outlet />
 
       <footer className="site-footer">
-        <p>© {new Date().getFullYear()} Tran Duc Minh. HelpDesk Specialist & IT Support Engineer.</p>
+        <p>
+          © {new Date().getFullYear()} Tran Duc Minh. HelpDesk Specialist & IT
+          Support Engineer.
+        </p>
       </footer>
     </>
   );
