@@ -17,7 +17,7 @@ export default function Contact() {
         <div className="contact-grid">
 
           <div className="contact-item">
-            <div className="contact-icon ci-red"><i className="bi bi-geo-alt-fill"></i></div>
+            <div className="contact-icon ci-sky"><i className="bi bi-geo-alt-fill"></i></div>
             <div>
               <div className="contact-info-label">ADDRESS</div>
               <div className="contact-info-value">Quang Tri, Vietnam</div>
@@ -25,7 +25,7 @@ export default function Contact() {
           </div>
 
           <a href="mailto:trminhithelpdesk@outlook.com" className="contact-item">
-            <div className="contact-icon ci-amber"><i className="bi bi-envelope-fill"></i></div>
+            <div className="contact-icon ci-sky"><i className="bi bi-envelope-fill"></i></div>
             <div>
               <div className="contact-info-label">EMAIL</div>
                                   <div className="contact-info-value">trminhithelpdesk@outlook.com</div>
@@ -33,7 +33,7 @@ export default function Contact() {
           </a>
 
           <a href="tel:0382652732" className="contact-item">
-            <div className="contact-icon ci-green"><i className="bi bi-telephone-fill"></i></div>
+            <div className="contact-icon ci-sky"><i className="bi bi-telephone-fill"></i></div>
             <div>
               <div className="contact-info-label">PHONE</div>
               <div className="contact-info-value">0382 652 732</div>
@@ -41,7 +41,7 @@ export default function Contact() {
           </a>
 
           <a href="https://www.linkedin.com/in/trminhdev/" target="_blank" className="contact-item">
-            <div className="contact-icon ci-blue"><i className="bi bi-linkedin"></i></div>
+            <div className="contact-icon ci-sky"><i className="bi bi-linkedin"></i></div>
             <div>
               <div className="contact-info-label">LINKEDIN</div>
               <div className="contact-info-value">trminhdev</div>
@@ -49,7 +49,7 @@ export default function Contact() {
           </a>
 
           <a href="https://facebook.com/trminhdev" target="_blank" className="contact-item">
-            <div className="contact-icon ci-blue"><i className="bi bi-facebook"></i></div>
+            <div className="contact-icon ci-sky"><i className="bi bi-facebook"></i></div>
             <div>
               <div className="contact-info-label">FACEBOOK</div>
               <div className="contact-info-value">TrMinh</div>
@@ -57,7 +57,7 @@ export default function Contact() {
           </a>
 
           <a href="https://www.tiktok.com/@trminh_zz" target="_blank" className="contact-item">
-            <div className="contact-icon ci-tiktok">
+            <div className="contact-icon ci-sky">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
                 <defs>
                   <linearGradient id="tiktokG" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -75,7 +75,7 @@ export default function Contact() {
           </a>
 
           <a href="https://github.com/trminh-developer" target="_blank" className="contact-item contact-item-full">
-            <div className="contact-icon ci-blue"><i className="bi bi-github"></i></div>
+            <div className="contact-icon ci-sky"><i className="bi bi-github"></i></div>
             <div>
               <div className="contact-info-label">GITHUB</div>
               <div className="contact-info-value">github.com/trminh-developer</div>
