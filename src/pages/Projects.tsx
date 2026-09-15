@@ -23,7 +23,9 @@ export default function Projects() {
               <div className="project-body">
                 <div className="project-name">Nyvora</div>
                 <p className="project-desc">
-                  Hệ thống học tập thông minh sử dụng thuật toán Elo Rating và Spaced Repetition giúp tự động điều chỉnh độ khó và cá nhân hóa lộ trình học.
+                  Hệ thống học tập thông minh sử dụng thuật toán Elo Rating và
+                  Spaced Repetition giúp tự động điều chỉnh độ khó và cá nhân
+                  hóa lộ trình học.
                 </p>
                 <div className="project-footer">
                   <div className="tech-pills">
@@ -63,7 +65,7 @@ export default function Projects() {
                     <span className="tech-pill">Xampp</span>
                   </div>
                   <a
-                    href="http://heartconnect-mqv.vercel.app/"
+                    href="http://localhost:5173"
                     target="_blank"
                     className="project-link"
                   >
