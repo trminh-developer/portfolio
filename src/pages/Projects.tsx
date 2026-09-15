@@ -43,7 +43,11 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="project-body">
+            <div className="project-card fade-up">
+              <div className="project-thumb project-thumb-red">
+                <i className="bi bi-heart-fill"></i>
+              </div>
+              <div className="project-body">
                 <div className="project-name">HeartConnect</div>
                 <p className="project-desc">
                   A modern brand website with a fully responsive layout,
