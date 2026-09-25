@@ -4,9 +4,7 @@ export default function Services() {
       <div className="subpage-wrapper">
         <div className="page-container">
           <div className="section-header fade-up">
-            <span className="page-tag">
-              <i className="bi bi-gear-fill"></i> &nbsp;<h1>SERVICES</h1>
-            </span>
+            <h1>SERVICES</h1>
             <p>Các dịch vụ IT và phần mềm tôi cung cấp.</p>
             <div className="header-line"></div>
           </div>
