@@ -81,6 +81,7 @@ export default function Layout() {
           <NavLink to="/experience">Experience</NavLink>
           <NavLink to="/skills">Skills</NavLink>
           <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/services">Services</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
       </header>
