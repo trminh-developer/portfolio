@@ -24,7 +24,7 @@ export default function Services() {
                   <div className="tech-pills">
                     <span className="tech-pill">Office 365</span>
                     <span className="tech-pill">Windows</span>
-                    <span className="tech-pill">MacOS</span>
+                    {/* <span className="tech-pill">MacOS</span> */}
                   </div>
                 </div>
               </div>
