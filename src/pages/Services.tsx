@@ -29,6 +29,26 @@ export default function Services() {
                 </div>
               </div>
             </div>
+            
+            <div className="project-card fade-up">
+              <div className="project-thumb project-thumb-purple">
+                <i className="bi bi-palette"></i>
+              </div>
+              <div className="project-body">
+                <div className="project-name">Design Web UI/UX</div>
+                <p className="project-desc">
+                  Nhận thiết kế giao diện Web UI/UX hiện đại, sáng tạo, có sử dụng Canvas để tạo các hiệu ứng hình ảnh động và tương tác độc đáo.
+                </p>
+                <div className="project-footer">
+                  <div className="tech-pills">
+                    <span className="tech-pill">UI/UX</span>
+                    <span className="tech-pill">Canvas</span>
+                    <span className="tech-pill">Figma</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
