@@ -38,8 +38,8 @@ export default function Experience() {
           <div className="sub-card">
             <div className="job-header">
               <div>
-                <div className="job-title">System Administrator</div>
-                <div className="job-company">F &nbsp;·&nbsp; Da Nang, Vietnam</div>
+                <div className="job-title">DevOps</div>
+                <div className="job-company">Null</div>
               </div>
               <div className="job-badge"><i className="bi bi-calendar3"></i> 2035 – 2039</div>
             </div>
