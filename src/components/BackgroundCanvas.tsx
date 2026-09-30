@@ -34,14 +34,9 @@ export default function BackgroundCanvas() {
     }
 
     const drawBg = () => {
-      const grad = ctx.createRadialGradient(W * 0.5, 200, 0, W * 0.5, 200, Math.max(W, H) * 0.8);
-      grad.addColorStop(0, '#101d35');
-      grad.addColorStop(0.5, '#0c1222');
-      grad.addColorStop(1, '#080e1a');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, W, H);
+      ctx.clearRect(0, 0, W, H);
 
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.03)';
+      ctx.strokeStyle = 'rgba(59, 130, 246, 0.05)';
       ctx.lineWidth = 1;
       const gs = 48;
       for (let x = 0; x < W; x += gs) {
@@ -66,22 +61,24 @@ export default function BackgroundCanvas() {
         if (p.y > H) p.y = 0;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${p.alpha})`;
+        ctx.arc(p.x, p.y, p.r + 1, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(96, 165, 250, ${p.alpha + 0.2})`;
         ctx.fill();
       });
 
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.04)';
-      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = 'rgba(96, 165, 250, 0.15)';
+      ctx.lineWidth = 0.8;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 140) {
+          if (dist < 150) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
+            // Dynamic opacity based on distance
+            ctx.strokeStyle = `rgba(96, 165, 250, ${0.2 * (1 - dist / 150)})`;
             ctx.stroke();
           }
         }
