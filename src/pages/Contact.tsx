@@ -90,6 +90,16 @@ export default function Contact() {
                 </div>
               </a>
 
+              <a href="https://zalo.me/0382652732" target="_blank" className="contact-item">
+                <div className="contact-icon ci-sky">
+                  <span style={{ fontWeight: 800, fontSize: '13px', letterSpacing: '0.5px' }}>Zalo</span>
+                </div>
+                <div>
+                  <div className="contact-info-label">ZALO</div>
+                  <div className="contact-info-value">0382 652 732</div>
+                </div>
+              </a>
+
               <a href="https://github.com/trminh-developer" target="_blank" className="contact-item contact-item-full">
                 <div className="contact-icon ci-sky"><i className="bi bi-github"></i></div>
                 <div>
