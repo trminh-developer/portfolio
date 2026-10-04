@@ -24,8 +24,10 @@ export default function Services() {
                   <div className="tech-pills">
                     <span className="tech-pill">Office 365</span>
                     <span className="tech-pill">Windows</span>
-                    {/* <span className="tech-pill">MacOS</span> */}
                   </div>
+                  <a href="https://zalo.me/0382652732" target="_blank" rel="noopener noreferrer" className="project-link" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0088FF' }}>
+                    <span style={{ fontWeight: 800, fontSize: '13px' }}>Zalo</span>
+                  </a>
                 </div>
               </div>
             </div>
