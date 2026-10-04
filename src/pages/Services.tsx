@@ -15,7 +15,9 @@ export default function Services() {
                 <i className="bi bi-microsoft"></i>
               </div>
               <div className="project-body">
-                <div className="project-name">Cài đặt Microsoft 365</div>
+                <a href="https://zalo.me/0382652732" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                  <div className="project-name" style={{ cursor: 'pointer' }}>Cài đặt Microsoft 365</div>
+                </a>
                 <p className="project-desc">
                   Nhận cài đặt Microsoft 365 Office. Hỗ trợ kích hoạt và thiết
                   lập bộ ứng dụng văn phòng đầy đủ tính năng.
@@ -25,9 +27,6 @@ export default function Services() {
                     <span className="tech-pill">Office 365</span>
                     <span className="tech-pill">Windows</span>
                   </div>
-                  <a href="https://zalo.me/0382652732" target="_blank" rel="noopener noreferrer" className="project-link" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0088FF' }}>
-                    <span style={{ fontWeight: 800, fontSize: '13px' }}>Zalo</span>
-                  </a>
                 </div>
               </div>
             </div>
