@@ -18,7 +18,7 @@ export default function Projects() {
           <div className="project-grid">
             <div className="project-card fade-up">
               <div className="project-thumb project-thumb-blue">
-                <i className="bi bi-brain"></i>
+                <i className="bi bi-cpu"></i>
               </div>
               <div className="project-body">
                 <div className="project-name">Nyvora</div>
@@ -65,7 +65,7 @@ export default function Projects() {
                     <span className="tech-pill">Xampp</span>
                   </div>
                   <a
-                    href="http://localhost:5173"
+                    href="https://heartconnect.vercel.app/"
                     target="_blank"
                     className="project-link"
                   >

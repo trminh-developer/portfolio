@@ -1,0 +1,30 @@
+/* Adaptations for the existing React project; original.css retains the template. */
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+#loader .loader-shell { height: 100svh; padding: 20px 0; }
+#loader .loader-center { display: flex; flex-direction: column; justify-content: center; min-height: 0; padding: 14px 0 0; gap: 16px; }
+#loader .loader-scene { flex: 1 1 auto; min-height: 0; max-height: 48svh; }
+#loader .intro-portrait { position: relative; height: min(40svh, 390px); max-height: 100%; aspect-ratio: 2 / 3; z-index: 2; }
+#loader .loader-copy, #loader .loader-bottom { flex-shrink: 0; }
+#loader .intro-portrait img { display: block; width: 100%; height: 100%; object-fit: contain; transform: scale(1.25); transform-origin: center bottom; filter: drop-shadow(0 0 35px rgba(100, 161, 255, .13)); }
+.portfolio-template .hero-left > p strong { color: #e8efff; }
+.portfolio-template .social-icon .bi,
+.portfolio-template .site-footer-social-list .bi { font-size: 21px; line-height: 1; }
+.portfolio-template .social-tile .bi { font-size: 24px; line-height: 1; }
+.portfolio-template .social-tile.github { background: #202b3c; color: #eef4ff; }
+.portfolio-template .social-tile.linkedin { background: #0a66c2; color: #fff; }
+.portfolio-template .about-person-stage { --portrait-scale: 1.3; aspect-ratio: 408 / 612; }
+.portfolio-template .about-person-stage img { object-fit: contain; transform: scale(var(--portrait-scale)); transform-origin: 50% 100%; }
+.portfolio-template .about-person-stage .about-person-suit {
+  -webkit-mask-image: radial-gradient(circle var(--reveal-radius) at var(--reveal-x) var(--reveal-y), #000 0%, #000 57%, transparent 100%), url('/Vest.png');
+  mask-image: radial-gradient(circle var(--reveal-radius) at var(--reveal-x) var(--reveal-y), #000 0%, #000 57%, transparent 100%), url('/Vest.png');
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.portfolio-template .site-footer-links { align-content: start; }
+.portfolio-template [hidden] { display: none !important; }
+.portfolio-template button:disabled { opacity: .55; cursor: default; }
+.portfolio-template :focus-visible { outline: 2px solid #8fc6ff; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,10 @@
+.git
+.vercel
+.vs
+.vscode
+.qa
+node_modules
+dist
+.env
+.env.*
+scripts

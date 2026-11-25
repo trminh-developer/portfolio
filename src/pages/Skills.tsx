@@ -13,7 +13,7 @@ export default function Skills() {
         <div className="header-line"></div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+      <div className="skills-grid">
 
         <div>
           <div className="sub-card fade-up">

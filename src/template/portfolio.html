@@ -1,0 +1,205 @@
+
+    <div id="loader" role="status" aria-label="Đang mở website TrMinh">
+        <div class="loader-bg" aria-hidden="true"></div>
+        <div class="loader-glow" aria-hidden="true"></div>
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-noise" aria-hidden="true"></div>
+
+        <div class="loader-shell">
+            <div class="loader-top">
+                <div class="loader-brand"><span class="loader-brand-mark">&gt;_</span><span>TRMINH</span></div>
+                <div class="loader-line" aria-hidden="true"></div>
+                <div class="loader-meta">PERSONAL WEBSITE / 2026</div>
+                <button type="button" class="loader-skip" id="introSkip">Bỏ qua <span aria-hidden="true">↗</span></button>
+            </div>
+
+            <div class="loader-center">
+                <div class="loader-scene" aria-hidden="true">
+                    <div class="scene-halo"></div>
+                    <div class="intro-portrait"><img src="/Vest.png" alt=""></div>
+                    <div class="touch-flare"></div>
+                </div>
+                <div class="loader-copy">
+                    <div class="loader-kicker">PERSONAL SPACE / IT &amp; DEVELOPMENT</div>
+                    <h1 class="loader-title">Mỗi kết nối mở ra một hành trình.</h1>
+                    <p class="loader-subtitle">Chào mừng bạn đến với không gian của TrMinh — nơi mình chia sẻ công việc, công nghệ và những dự án đang xây dựng.</p>
+                </div>
+
+                <div class="loader-bottom">
+                    <div class="loader-statusrow">
+                        <span class="loader-status" id="introStatus">ĐANG XUẤT HIỆN</span>
+                        <span class="loader-time" id="cinemaTime" aria-hidden="true">[ 00 . 00 . 00 ]</span>
+                        <span class="loader-percent" id="pctText">0<span>%</span></span>
+                    </div>
+                    <div class="loader-track" aria-hidden="true"><div class="loader-fill" id="progressBar"></div></div>
+                    <div class="loader-footer"><span class="loader-credit"><span class="loader-credit-dot"></span>WELCOME TO TRMINH</span><span>© 2026 · VIỆT NAM</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <main class="container" id="home">
+        <section class="hero-left">
+            <h1><span>Welcome to</span>My Portfolio</h1>
+            <div class="typing-wrapper" id="typewriter">IT Support Engineer |</div>
+            <p>
+                Xin chào! Mình là <strong>Trần Đức Minh</strong> — <strong>HelpDesk Specialist &amp; IT Support Engineer</strong>. Mình giúp đội ngũ vận hành hệ thống ổn định, giải quyết sự cố nhanh chóng và xây dựng những trải nghiệm web hữu ích.
+            </p>
+            <div class="btn-group">
+                <a href="#about" class="btn-primary">Tìm Hiểu Về Tôi ↓</a>
+                <a href="mailto:trminhithelpdesk@outlook.com" class="btn-secondary">Liên Hệ Ngay</a>
+            </div>
+            <div class="find-me" aria-label="Kết nối mạng xã hội">
+                <span class="find-label">FIND ME</span>
+                <div class="social-icons">
+                    <a class="social-icon" href="https://github.com/trminh-developer" target="_blank" rel="noopener noreferrer" aria-label="GitHub · trminh-developer" title="GitHub · trminh-developer"><i class="bi bi-github" aria-hidden="true"></i></a>
+                    <a class="social-icon" href="https://www.linkedin.com/in/trminhdev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn · trminhdev" title="LinkedIn · trminhdev"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-right is-card-loading" id="cardContainer">
+            <div class="card-skeleton" aria-hidden="true">
+                <span class="sk-strap"></span><span class="sk-ring"></span>
+                <div class="sk-card">
+                    <span class="sk-shimmer sk-micro"></span><span class="sk-shimmer sk-large"></span>
+                    <span class="sk-shimmer sk-photo"></span><span class="sk-shimmer sk-footer"></span>
+                </div>
+            </div>
+            <div class="fallback-lanyard" id="fallbackLanyard" aria-label="Thẻ portfolio dự phòng khi chưa tải được hiệu ứng 3D">
+                <div class="fallback-strap"><span>TRMINH IT · TRMINH IT</span></div>
+                <div class="fallback-clip"></div>
+                <div class="fallback-small-ring"></div>
+                <div class="fallback-large-ring"></div>
+                <div class="fallback-badge">
+                    <div class="fallback-slot"></div>
+                    <div class="fallback-top"><strong>SUPPORT</strong><span>IT SUPPORT<br>HELPDESK ENGINEER</span></div>
+                    <div class="fallback-title">IT SUPPORT</div>
+                    <div class="fallback-photo"><img src="/171367.jpg" id="fallbackPortrait" alt="Ảnh chân dung cá nhân trên thẻ portfolio"></div>
+                    <div class="fallback-name">TRẦN ĐỨC MINH</div>
+                    <div class="fallback-footer">PORTFOLIO <small>IT SUPPORT &amp; DEVELOPMENT</small></div>
+                </div>
+            </div>
+            <canvas id="lanyardCanvas" aria-label="Thẻ portfolio 3D. Kéo để di chuyển, nhấn để lật thẻ." title="Kéo thẻ để tương tác, nhấn để lật"></canvas>
+        </section>
+        <div class="tilt-controls" id="tiltControls">
+            <button class="tilt-toggle" id="tiltToggle" type="button" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="7" y="2.5" width="10" height="19" rx="2.5"/>
+                    <path d="m3.5 7-2 3 2 3m17-6 2 3-2 3M10 18.5h4"/>
+                </svg>
+                <span id="tiltToggleLabel">Bật cảm biến nghiêng</span>
+            </button>
+            <span class="tilt-message" id="tiltMessage" role="status" aria-live="polite">Nếu được phép, thẻ tự nghiêng theo điện thoại.</span>
+        </div>
+    </main>
+
+
+    <section class="about-showcase" id="about" aria-labelledby="about-title">
+        <div class="about-showcase-glow" aria-hidden="true"></div>
+        <div class="about-heading" id="about-heading-reveal">
+            <h2 id="about-title">ABOUT ME</h2>
+        </div>
+        <div class="about-showcase-inner">
+            <div class="about-intro">
+                <p class="about-eyebrow"><span class="about-accent-line" aria-hidden="true"></span> XIN CHÀO, MÌNH LÀ</p>
+                <h3><span>Trần Đức</span><span class="about-last-name">Minh<span class="about-dot">.</span></span></h3>
+                <p class="about-intro-role">IT SUPPORT <span aria-hidden="true">/</span> WEB DEVELOPER</p>
+                <p class="about-intro-note">Mình yêu thích công nghệ, giải quyết vấn đề và giúp mọi người làm việc hiệu quả hơn mỗi ngày.</p>
+                <a class="about-contact-btn" href="#contact"><span aria-hidden="true">↗</span> Kết nối với mình</a>
+            </div>
+            <figure class="about-portrait" aria-label="Ảnh chân dung có hiệu ứng soi trang phục Spider-Man khi rê chuột">
+                <div class="about-person-stage" id="about-person-stage" tabindex="0" role="img" aria-label="Rê chuột lên ảnh để soi trang phục Spider-Man. Nhấn Enter khi dùng bàn phím.">
+                    <div class="about-skeleton" aria-hidden="true"><div class="sk-shimmer sk-head"></div><div class="sk-shimmer sk-body"></div></div>
+                    <img class="about-person-base" loading="lazy" decoding="async" src="/Vest.png" alt="Trần Đức Minh trong trang phục vest" width="408" height="612">
+                    <img class="about-person-suit" loading="lazy" decoding="async" src="/template/21ce0f6adb12.png" alt="" aria-hidden="true" width="745" height="1215">
+
+                </div>
+            </figure>
+            <div class="about-details">
+                <p class="about-detail-label">SÁNG TẠO × CÔNG NGHỆ</p>
+                <h3>Không chỉ để xem.<span>Để trải nghiệm.</span></h3>
+                <p>Mình tập trung vào <strong>IT Support và HelpDesk</strong>: xử lý sự cố, quản trị hệ thống, mạng máy tính và hỗ trợ người dùng.</p>
+                <p>Bên cạnh công việc hỗ trợ kỹ thuật, mình xây dựng ứng dụng web với <strong>React và TypeScript</strong>, đồng thời tự động hóa các công việc thường ngày.</p>
+                <div class="about-interests" aria-label="Các hướng sáng tạo quan tâm">
+                    <span>01 <strong>IT Support &amp; HelpDesk</strong></span>
+                    <span>02 <strong>Web tương tác</strong></span>
+                    <span>03 <strong>Hệ thống &amp; tự động hóa</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-section contact-community-section" id="contact" aria-labelledby="contact-section-title">
+        <div class="contact-titlebar">
+            <h2 id="contact-section-title">Liên hệ với tôi</h2>
+        </div>
+        <div class="contact-layout">
+            <div class="contact-column">
+                <div class="contact-card" id="contactMailPanel">
+                    <h3><span class="accent">Liên hệ</span></h3>
+                    <p class="card-subtitle">Bạn có điều gì muốn thảo luận? Chỉ cần gửi tin nhắn cho mình qua biểu mẫu bên dưới.</p>
+                    <form class="contact-form" id="contactMailForm">
+                        <input type="hidden" name="subject" value="Liên hệ qua TrMinh Portfolio">
+                        <label class="contact-field">Tên của bạn
+                            <input name="user_name" id="contactSenderName" type="text" maxlength="80" placeholder="Bạn tên là gì?" autocomplete="name" required>
+                        </label>
+                        <label class="contact-field">Email
+                            <input name="user_email" id="contactSenderEmail" type="email" maxlength="140" placeholder="email@example.com" autocomplete="email" required>
+                        </label>
+                        <label class="contact-field">Tin nhắn
+                            <textarea name="message" id="contactSenderMessage" rows="4" maxlength="2500" placeholder="Viết điều bạn muốn chia sẻ..." required></textarea>
+                        </label>
+                        <button class="contact-action" type="submit" aria-label="Gửi tin nhắn liên hệ">Gửi tin nhắn <span aria-hidden="true">↗</span></button>
+                        <p class="contact-form-notice" id="contactMailNotice" role="status" aria-live="polite"></p>
+                    </form>
+                    <div class="contact-left-divider" aria-hidden="true"></div>
+                    <h3 class="contact-find-title">TÌM TÔI</h3>
+                    <div class="contact-social-list">
+                        <a class="contact-social-card" target="_blank" rel="noopener noreferrer" href="https://github.com/trminh-developer" aria-label="GitHub · trminh-developer"><span class="social-tile github"><i class="bi bi-github" aria-hidden="true"></i></span><span><strong>GitHub</strong><small>trminh-developer</small></span><span class="corner-arrow" aria-hidden="true">↗</span></a>
+                        <a class="contact-social-card" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/trminhdev/" aria-label="LinkedIn · trminhdev"><span class="social-tile linkedin"><i class="bi bi-linkedin" aria-hidden="true"></i></span><span><strong>LinkedIn</strong><small>trminhdev</small></span><span class="corner-arrow" aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-card comment-board" id="commentBoard">
+                <div class="comments-topline">
+                    <h3 class="comments-heading"><span class="comment-bubble-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-3-.4-4.3-1.2L3 21l2.2-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>Bình luận</h3>
+                    <span class="comments-total" id="commentsTotal">Chưa kết nối</span>
+                </div>
+                <p class="card-subtitle">Đăng nhập Google để bình luận. Tin nhắn được hiển thị công khai cho người truy cập website.</p>
+                <div class="comment-authline">
+                    <span class="comment-current-user" id="commentCurrentUser">Chưa đăng nhập</span>
+                    <button class="comment-login-btn" id="commentLoginBtn" type="button" disabled>Đăng nhập Google</button>
+                </div>
+                <form id="commentForm" class="comment-compose">
+                    <label class="contact-field" for="commentDisplayName">Tên</label>
+                    <input class="comment-name-input" id="commentDisplayName" type="text" maxlength="80" placeholder="Nhập tên của bạn" autocomplete="nickname">
+                    <label class="contact-field" for="commentText">Bình luận</label>
+                    <textarea id="commentText" maxlength="850" rows="5" placeholder="Hãy viết ý kiến của bạn ở đây..." aria-label="Nội dung bình luận" disabled required></textarea>
+                    <div class="comment-avatar-field">
+                        <label class="contact-field" for="commentAvatarInput">Ảnh đại diện <span class="optional">(không bắt buộc)</span></label>
+                        <div class="comment-avatar-picker-row">
+                            <label class="comment-avatar-pick" for="commentAvatarInput" id="commentAvatarPick">
+                                <span class="comment-avatar-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="8.5" cy="8.5" r="1.7"/><path d="m3 14 4-4 7 7"/><path d="M20 14v7m-3.5-3.5H23"/></svg></span>
+                                <img id="commentAvatarPreview" alt="Ảnh đại diện được chọn" hidden>
+                                <span id="commentAvatarLabel">Chọn ảnh đại diện</span>
+                            </label>
+                            <button type="button" id="commentAvatarClear" class="comment-avatar-clear" hidden aria-label="Bỏ ảnh đại diện đã chọn">Bỏ ảnh</button>
+                        </div>
+                        <input id="commentAvatarInput" class="visually-hidden-file" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="commentAvatarHelp">
+                        <small id="commentAvatarHelp" class="comment-avatar-help">JPG, PNG hoặc WebP · tối đa 5 MB · sẽ tự thu nhỏ để tải nhanh</small>
+                    </div>
+                    <div class="comment-compose-foot"><small><span id="commentChars">0</span>/850 ký tự</small><button class="contact-action" id="commentSubmitBtn" type="submit" disabled>Gửi bình luận ↗</button></div>
+                    <p class="comments-notice" id="commentsNotice" role="status" aria-live="polite">Bình luận hiện chưa khả dụng. Bạn có thể liên hệ với mình qua biểu mẫu bên cạnh.</p>
+                </form>
+                <div class="comment-divider"></div>
+                <div class="comment-feed" id="commentFeed" aria-live="polite" aria-label="Danh sách bình luận công khai">
+                    <p class="comment-empty">Chưa có bình luận để hiển thị.</p>
+                </div>
+                <p class="contact-privacy">Tên, nội dung và ảnh đại diện bạn chọn (hoặc ảnh Google mặc định) sẽ hiển thị công khai. Đừng đăng ảnh hay thông tin riêng tư của người khác.</p>
+            </div>
+        </div>
+    </section>

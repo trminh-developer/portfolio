@@ -48,7 +48,8 @@ export default function Contact() {
             <div className="header-line"></div>
           </div>
 
-          <div className="sub-card fade-up" style={{ maxWidth: '680px', margin: '0 auto' }}>
+          <div className="contact-page-grid">
+          <div className="sub-card fade-up">
             <div className="contact-grid">
               <div className="contact-item">
                 <div className="contact-icon ci-sky"><i className="bi bi-geo-alt-fill"></i></div>
@@ -74,7 +75,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="https://www.linkedin.com/in/trminhdev/" target="_blank" className="contact-item">
+              <a href="https://www.linkedin.com/in/trminhdev/" target="_blank" rel="noopener noreferrer" className="contact-item">
                 <div className="contact-icon ci-sky"><i className="bi bi-linkedin"></i></div>
                 <div>
                   <div className="contact-info-label">LINKEDIN</div>
@@ -82,7 +83,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="https://facebook.com/trminhdev" target="_blank" className="contact-item">
+              <a href="https://facebook.com/trminhdev" target="_blank" rel="noopener noreferrer" className="contact-item">
                 <div className="contact-icon ci-sky"><i className="bi bi-facebook"></i></div>
                 <div>
                   <div className="contact-info-label">FACEBOOK</div>
@@ -90,7 +91,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="https://zalo.me/0382652732" target="_blank" className="contact-item">
+              <a href="https://zalo.me/0382652732" target="_blank" rel="noopener noreferrer" className="contact-item">
                 <div className="contact-icon ci-sky">
                   <span style={{ fontWeight: 800, fontSize: '13px', letterSpacing: '0.5px' }}>Zalo</span>
                 </div>
@@ -100,7 +101,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="https://github.com/trminh-developer" target="_blank" className="contact-item contact-item-full">
+              <a href="https://github.com/trminh-developer" target="_blank" rel="noopener noreferrer" className="contact-item contact-item-full">
                 <div className="contact-icon ci-sky"><i className="bi bi-github"></i></div>
                 <div>
                   <div className="contact-info-label">GITHUB</div>
@@ -110,7 +111,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <section className="section-card contact-section fade-up" id="contact" style={{ marginTop: '40px' }}>
+          <section className="section-card contact-section fade-up" id="contact">
             <div className="contact-copy">
               <p className="eyebrow">Let's work together</p>
               <h2>Available for full-time, contract, and consulting roles.</h2>
@@ -121,22 +122,31 @@ export default function Contact() {
 
             <form ref={form} onSubmit={sendEmail} className="contact-form">
               <div className="form-row">
-                <input type="text" name="user_name" placeholder="Your name" required />
-                <input type="email" name="user_email" placeholder="Email" required />
+                <label>Your name
+                  <input type="text" name="user_name" placeholder="Your name" autoComplete="name" required />
+                </label>
+                <label>Email
+                  <input type="email" name="user_email" placeholder="Email" autoComplete="email" required />
+                </label>
               </div>
-              <input type="text" name="subject" placeholder="Subject" required />
-              <textarea rows={5} name="message" placeholder="Tell me about your project or team" required></textarea>
+              <label>Subject
+                <input type="text" name="subject" placeholder="Subject" required />
+              </label>
+              <label>Message
+                <textarea rows={5} name="message" placeholder="Tell me about your project or team" required></textarea>
+              </label>
               <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send message"}
               </button>
               {formStatus === "success" && (
-                <p style={{ color: "#10b981", marginTop: "10px" }}>Message sent successfully!</p>
+                <p className="form-status" role="status">Message sent successfully!</p>
               )}
               {formStatus === "error" && (
-                <p style={{ color: "#ef4444", marginTop: "10px" }}>Failed to send message. Please try again.</p>
+                <p className="form-status error" role="status">Failed to send message. Please try again.</p>
               )}
             </form>
           </section>
+          </div>
 
         </div>
       </div>

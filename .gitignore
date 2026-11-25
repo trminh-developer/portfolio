@@ -24,4 +24,7 @@ dist-ssr
 *.sw?
 .vs/
 
-.env
+.qa/
+.vercel/
+.env*
+!.env.example
